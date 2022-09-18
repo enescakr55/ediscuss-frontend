@@ -1,0 +1,28 @@
+<div class="main bgBackground">
+  <div class="contentMain">
+  <div class="siteLogo"></div>
+  <br/><br/>
+  <div class="loginFormClass" style="position: relative;">
+    <form [formGroup]="loginForm">
+      <div class="textInput">
+        <input formControlName="username" type="text" autocomplete="off" required="required">
+        <span>Kullanıcı Adı</span>
+        <i></i>
+      </div>
+      <div class="textInput">
+        <input formControlName="password" type="password" autocomplete="current-password" required="required">
+        <span>Şifre</span>
+        <i></i>
+      </div>
+      <!--<input class="textInput" formControlName="username" type="text" placeholder="Kullanıcı Adı"/><br>
+      <input class="textInput" formControlName="password" type="password" placeholder="Şifre"/> -->
+    </form>
+    <div class="forgotPasswordMain"><div class="forgotPassword" routerLink="/forgot-password">Şifremi Unuttum </div></div>
+    <br/>
+    <button class="btn bgYellow" (click)="login()" *ngIf="loading==false">Giriş Yap</button>
+    <button class="btn bgYellow" (click)="login()" *ngIf="loading==true"><app-loading></app-loading></button>
+    <br/>
+    <button class="btn bgTransparent textYellow registerBtn" routerLink="/register">Yeni misin ? <br/> eDiscuss ailesine katıl</button>
+  </div>
+  </div>
+</div>

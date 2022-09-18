@@ -1,0 +1,21 @@
+.menuItem {
+    display: inline-block;
+    padding: 0.5em 1em;
+    margin: 0.5em;
+    border-radius: 0.25em;
+    color: rgb(23, 23, 23);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.0em;
+    cursor:pointer;
+    /*background-color: rgb(255, 220, 125); */
+    border:1px solid rgb(188, 188, 188);
+}
+.menuItem:hover {
+  color: rgb(114, 114, 114);
+  transition: color 0.5s;
+  /*background-color: rgb(197, 197, 197);*/
+}
+.dnone {
+  display: none;
+}

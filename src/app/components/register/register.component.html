@@ -1,0 +1,65 @@
+<div class="main bgBackground" >
+  <div class="formDiv bgContentMain contentMain">
+    <form [formGroup]="registerForm">
+    <div class="ui grid">
+      <div class="row">
+        <div class="column">
+          <div class="siteLogo"></div>
+        </div>
+      </div>
+        <div class="row">
+          <div class="eight wide column">
+            <div class="textInput">
+              <input formControlName="firstName" type="text" autocomplete="off" required="true">
+              <span>Adınız</span>
+              <i></i>
+            </div>
+          </div>
+
+          <div class="eight wide column">
+            <div class="textInput">
+              <input formControlName="lastName" type="text"  autocomplete="off" required="true">
+              <span>Soyadınız</span>
+              <i></i>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column">
+            <div class="textInput">
+              <input formControlName="username" type="text" autocomplete="off" required="true">
+              <span>Kullanıcı Adı</span>
+              <i></i>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+          <div class="column">
+            <div class="textInput">
+              <input formControlName="email" type="email" autocomplete="off" required="true">
+              <span>E-Posta</span>
+              <i></i>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+          <div class="column">
+            <div class="textInput">
+              <input formControlName="password" type="password" autocomplete="new-password" required="true">
+              <span>Şifre</span>
+              <i></i>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+          <div class="column"><font class="textYellow" style="font-size: 17px;">Siteye üye olarak <a routerLink="/privacy-policy" style="color: rgb(86, 156, 253);">gizlilik politikamızı</a> kabul etmiş olursun</font></div>
+        </div>
+        <div class="row">
+          <div class="column">
+            <button class="btn bgYellow" (click)="register()">Kayıt Ol</button>
+          </div>
+        </div>
+    </div>
+  </form>
+  </div>
+</div>

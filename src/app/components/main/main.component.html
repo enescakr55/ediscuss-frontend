@@ -1,0 +1,30 @@
+<div class="bgBackground" style="min-height:99vh; color: white; padding-top: 30px;">
+  <div class="ui stackable  grid">
+    <div class="three column row">
+      <div class="four wide column borderS">
+        <app-subject-filter></app-subject-filter>
+      </div>
+      <div class="eight wide column borderS">
+        <div class="one column row">
+          <div class="column borderS">
+            <app-discussions *ngIf="filter == false && currentUrl == '/'" discussType="all"></app-discussions>
+            <app-discussions *ngIf="filter == false && currentUrl == '/discussions'" discussType="all"></app-discussions>
+            <app-discussions *ngIf="filter == false && currentUrl == '/discussions/my'" discussType="my"></app-discussions>
+            <app-discussions *ngIf="filter == false && currentUrl == '/discussions/interesting'" discussType="favorites"></app-discussions>
+            <app-discussions *ngIf="filter" discussType="filter" [filterType]="filterType" [filterValue]="filterValue"></app-discussions>
+
+          </div>
+        </div>
+
+      </div>
+      <div *ngIf="userInfo" class="four wide column borderS">
+        <div style="text-align: center;">
+          <i class="circular inverted teal huge user icon"></i>
+          <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight:bold; font-size:20px; margin-top:10px">{{userInfo.firstName}} {{userInfo.lastName}}</div>
+          <div class="specialButton" routerLink="/new-discuss">Yeni tartışma oluştur</div>
+          <div class="specialButton" routerLink="/discussions/my">Tartışmalarım</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

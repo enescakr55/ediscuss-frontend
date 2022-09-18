@@ -1,0 +1,33 @@
+<div class="replyDiv bgDiscussNA">
+  <div class="replyHeaderBody">
+    <!--<div class="replyBodyText"><pre class="preBody">{{reply.replyText}}</pre></div>-->
+    <markdown mermaid katex ngPreserveWhitespaces [data]="reply.replyText"></markdown>
+  </div>
+  <div class="replyFooter">
+    <font style="font-size: 13px; font-weight:normal;"><i class="user circle outline icon"></i> {{reply.username}}</font>
+    <div style="float: right;" class="replyFooterText"><i class="clock outline icon"></i> {{reply.createdDate | date:'dd/MM/YY HH:mm'}}
+    <!---->
+    <div class="ui right pointing dropdown icon" (load)="enableDropdownn()">
+      <i class="settings icon"></i>
+      <div class="menu">
+        <div class="header">
+          <i class="large caret down icon"></i>
+          İşlemler
+        </div>
+        <!--<div class="item">
+          <div class="ui red empty circular label"></div>
+          Important
+        </div>
+        <div class="item">
+          <div class="ui blue empty circular label"></div>
+          Announcement
+        </div>-->
+        <div class="item" (click)="removeReply(reply.replyId)">
+          <i class="trash alternate outline icon"></i>Sil
+        </div>
+      </div>
+    </div>
+    <!---->
+    </div>
+  </div>
+  </div>

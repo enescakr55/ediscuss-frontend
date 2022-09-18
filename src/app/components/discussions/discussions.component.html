@@ -1,0 +1,45 @@
+<div class="discussMainDiv">
+  <div style="position:relative;">
+    <h2 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Tartışmalar</h2>
+    <div style="position: absolute; right:0px; top:0px;">
+    <!--Filtreleme-->
+    <div class="ui floating labeled icon dropdown button">
+      <i class="filter icon"></i>
+      <span class="text">Filtrele</span>
+      <div class="menu">
+        <div class="header">
+          Başlığa Göre Ara
+        </div>
+        <div class="ui action input">
+          <input type="text" placeholder="Ara..." [value]="filterDto.discussTitle" [(ngModel)]="filterDto.discussTitle">
+          <button class="ui button" (click)="filter()">Ara</button>
+        </div>
+        <div class="header">
+          <i class="star outline icon"></i> Favorilere Göre Filtrele
+        </div>
+        <div class="divider"></div>
+        <div (click)="showFavorites()" class="item">
+          <div  class="ui red empty circular label"></div>
+          İlgilendiklerim
+        </div>
+        <div (click)="showAll()" class="item">
+          <div class="ui blue empty circular label"></div>
+          Tümü
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <!---->
+    </div>
+  </div>
+  <hr style="margin:0px; margin-top:0px; margin-bottom:20px">
+  <div *ngIf="!discussions || discussions.length < 1" style="font-size: 18px; font-weight:bold; text-align: center; margin-top: 20px;"><i class="x icon"></i>Gönderi bulunamadı...</div>
+  <div *ngFor="let discuss of discussions">
+    <app-discuss [discuss]="discuss" [setLine2]="true"></app-discuss>
+  </div>
+</div>

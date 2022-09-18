@@ -1,0 +1,24 @@
+<div class="mainAddReply bgDiscussNA addReply" style="text-align: center;">
+  <div style="text-align: left; margin-bottom:10px">
+    <font style="font-weight: bold; font-size:15px">Yanıt Ekle</font>
+  </div>
+  <div class="textCustom">
+  <button class="textButton" style="font-weight: bold;" (click)="togglePreview()" *ngIf="preview == false"><i class="eye icon"></i> Önizleme</button>
+  <button class="textButton" style="font-weight: bold;" (click)="togglePreview()" *ngIf="preview"><i class="eye slash icon"></i> Düzenle</button>
+  <button class="textButton" (click)="addCustomText(boldText)"><i class="small bold icon"></i></button>
+  <button class="textButton" (click)="addCustomText(italicText)"><i class="small italic icon"></i></button>
+  <button class="textButton" (click)="addCustomText(listText)"><i class="small list icon"></i></button>
+  <button class="textButton" (click)="addCustomText(codeText)"><i class="small code icon"></i></button>
+  <button class="textButton" (click)="addCustomText(headingText)"><i class="small heading icon"></i></button>
+  <button class="textButton" (click)="addCustomText(linkText)"><i class="small linkify icon"></i></button>
+  <button class="textButton" (click)="addCustomText(imageText)"><i class="small image icon"></i></button>
+  </div>
+  <form [formGroup]="addReplyForm">
+  <textarea *ngIf="preview == false" formControlName="replyText" class="transparentInput mw600" style="height: 250px; max-width: 800px; font-size: 14px; border:none; outline:none; box-shadow:1px 1px 4px 1px #21002d;" placeholder="Yanıtınızı buraya girebilirsiniz."></textarea>
+  <div *ngIf="preview == true" style="text-align: left; min-height: 250px;"><markdown [data]="getTextValue()"></markdown></div>
+</form>
+  <br/>
+  <div class="mw600" style="text-align: left; max-width: 800px;">
+    <button class="ui btn bgYellow" style="font-size: 13px; padding:10px;" (click)="submit()">Yanıtla</button>
+  </div>
+</div>

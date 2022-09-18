@@ -1,0 +1,35 @@
+
+<div class="mainAddDiscuss bgBackground" style="text-align: center;">
+  <div class="mw800" style="text-align: left;">
+    <font style="font-size: 20px; font-weight:bold; color:white;">Yeni Tartışma Oluştur</font>
+    <br/>
+  </div>
+
+  <form [formGroup]="addDiscussionForm">
+
+
+  <select formControlName="subjectId" class="transparentInput mw800" name="subject">Kategori Seçin
+    <option disabled selected value="">Kategori Seçin</option>
+    <option *ngFor="let subject of subjects" value="{{subject.subjectId}}">{{subject.subjectName}}</option>
+  </select><br/>
+  <input formControlName="discussHeader" class="transparentInput mw800"  type="text" placeholder="Tartışma Başlığı"><br/>
+  <div class="textCustom mw800">
+    <button class="textButton" style="font-weight: bold;" (click)="togglePreview()" *ngIf="preview == false"><i class="eye icon"></i> Önizleme</button>
+    <button class="textButton" style="font-weight: bold;" (click)="togglePreview()" *ngIf="preview"><i class="eye slash icon"></i> Düzenle</button>
+    <button class="textButton" (click)="addCustomText(boldText)"><i class="small bold icon"></i></button>
+    <button class="textButton" (click)="addCustomText(italicText)"><i class="small italic icon"></i></button>
+    <button class="textButton" (click)="addCustomText(listText)"><i class="small list icon"></i></button>
+    <button class="textButton" (click)="addCustomText(codeText)"><i class="small code icon"></i></button>
+    <button class="textButton" (click)="addCustomText(headingText)"><i class="small heading icon"></i></button>
+    <button class="textButton" (click)="addCustomText(linkText)"><i class="small linkify icon"></i></button>
+    <button class="textButton" (click)="addCustomText(imageText)"><i class="small image icon"></i></button>
+    </div><br/>
+  <textarea *ngIf="preview == false" formControlName="discussDescription" class="transparentInput mw800" style="height: 400px ;" placeholder="Açıklama"></textarea>
+  <div *ngIf="preview == true" class="markdownDiv mw800"><markdown [contentEditable]="true" [data]="getTextValue()"></markdown></div>
+</form>
+  <br/>
+  <div class="mw800" style="text-align: left;">
+    <button class="ui btn bgYellow" (click)="submit()">Tartışma Ekle</button>
+  </div>
+
+</div>

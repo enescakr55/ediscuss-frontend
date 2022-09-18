@@ -1,0 +1,17 @@
+<div class="discussDiv" [class.cp]="setLine2" [class.bgDiscuss]="setLine2" [class.bgDiscussNA]="!setLine2"  [routerLink]="'/replies/'+discuss.discussId">
+  <div class="discussHeader">
+    <div class="discussHeaderText"><i class="comment alternate icon"></i> {{discuss.discussHeader}}<div *ngIf="!setLine2 && getUser() == discuss.username" (click)="deleteDiscuss(discuss.discussId)" style="float:right;" class="cp"><i class="trash alternate outline icon"></i>Sil</div></div>
+  </div>
+  <div class="discussBody">
+    <div class="discussBodyText">
+      <div *ngIf="setLine2" class="discussDescription">{{discuss.discussDescription}}</div>
+      <!--<div><pre *ngIf="!setLine2" style="white-space: pre-line;">{{discuss.discussDescription}}</pre></div>-->
+      <markdown mermaid *ngIf="!setLine2" [data]="discuss.discussDescription"></markdown>
+    </div>
+  </div>
+  <div class="discussFooter">
+    <font style="font-size: 13px; font-weight:normal;"><i class="tag icon" ></i> {{discuss.subjectName}}</font><br/>
+    <font style="font-size: 13px; font-weight:normal;"><i class="user circle outline icon"></i> {{discuss.username}}</font>
+    <div style="float: right;" class="discussFooterText"><i class="clock outline icon"></i> {{discuss.createdDate | date:'dd/MM/YY HH:mm'}}</div>
+  </div>
+</div>

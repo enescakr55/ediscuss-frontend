@@ -1,0 +1,23 @@
+<div class="ui fixed top segment" style="background-color: #ffff99;">
+<div class="ui secondary menu" style="border:none;">
+  <div class="item" routerLink="/" style="cursor: pointer;"><font style="font-family:cursive,sans-serif; font-weight: bold; font-size:16px; letter-spacing: 2px;">eDiscuss</font></div>
+  <div class="right menu">
+    <!--<div class="ui buttons">
+      <button class="ui button">Giriş</button>
+      <div class="or"></div>
+      <button class="ui positive button">Kayıt</button>
+    </div> -->
+    <a routerLink="/introduction" class=" menuItem">Hakkımızda</a>
+    <a *ngIf="isLogged == false" class=" menuItem" routerLink="/login">Giriş</a>
+    <a class="ui right dropdown" [style.display]="!isLogged ? 'none' : 'block'">
+      <a class="menuItem"><i class="teal user circle icon"></i><font>{{currentUsername}}</font><i class="dropdown icon"></i></a>
+
+      <div class="menu">
+        <div (click)="logout()" class="item">Çıkış Yap</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+</div>
+
