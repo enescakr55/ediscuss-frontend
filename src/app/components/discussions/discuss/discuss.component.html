@@ -1,17 +1,45 @@
-<div class="discussDiv" [class.cp]="setLine2" [class.bgDiscuss]="setLine2" [class.bgDiscussNA]="!setLine2"  [routerLink]="'/replies/'+discuss.discussId">
-  <div class="discussHeader">
+<div class="discussDiv" [class.cp]="setLine2" [class.bgDiscuss]="setLine2" [class.bgDiscussNA]="!setLine2">
+  <div class="discussHeader" [routerLink]="'/replies/'+discuss.discussId">
     <div class="discussHeaderText"><i class="comment alternate icon"></i> {{discuss.discussHeader}}<div *ngIf="!setLine2 && getUser() == discuss.username" (click)="deleteDiscuss(discuss.discussId)" style="float:right;" class="cp"><i class="trash alternate outline icon"></i>Sil</div></div>
   </div>
-  <div class="discussBody">
+  <div class="discussBody" [routerLink]="'/replies/'+discuss.discussId">
     <div class="discussBodyText">
       <div *ngIf="setLine2" class="discussDescription">{{discuss.discussDescription}}</div>
       <!--<div><pre *ngIf="!setLine2" style="white-space: pre-line;">{{discuss.discussDescription}}</pre></div>-->
       <markdown mermaid *ngIf="!setLine2" [data]="discuss.discussDescription"></markdown>
     </div>
   </div>
-  <div class="discussFooter">
+  <div class="discussFooter" >
     <font style="font-size: 13px; font-weight:normal;"><i class="tag icon" ></i> {{discuss.subjectName}}</font><br/>
-    <font style="font-size: 13px; font-weight:normal;"><i class="user circle outline icon"></i> {{discuss.username}}</font>
-    <div style="float: right;" class="discussFooterText"><i class="clock outline icon"></i> {{discuss.createdDate | date:'dd/MM/YY HH:mm'}}</div>
+    <font style="font-size: 13px; font-weight:normal;" (pointerenter)="getUserInfo(discuss.username)" class="userFont"><i class="user circle outline icon" ></i> {{discuss.username}}</font>
+    <div class="ui fluid popup bottom left transition hidden" style="inset: 563.866px auto auto 0.994385px;">
+      <div class="ui two column relaxed divided grid" *ngIf="userInfoLoading == false">
+        <div *ngIf="userInfo && userInfo.username" class="column" style="text-align: center;">
+          <!-- Profile Photo -->
+          <img class="discussUserProfilePhoto" [src]="mainPhotoUrl+userInfo.profilePhotoPath">
+          <p class="discussUserName">{{userInfo.firstName}} {{userInfo.lastName}}</p>
+          <div *ngIf="userInfo.username != currentUsername" class="ui vertical animated button" tabindex="0">
+            <div class="visible content">Mesaj</div>
+            <div class="hidden content">
+              <i class="envelope icon"></i>
+            </div>
+          </div>
+          <div *ngIf="userInfo.username != currentUsername" class="ui vertical animated button" tabindex="0">
+            <div class="visible content">Takip Et</div>
+            <div class="hidden content">
+              <i class="user plus icon"></i>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <h4 class="ui header">İlgi Alanları</h4>
+          <div class="ui link list">
+            <a class="item">Mesaj Gönder</a>
+            <a class="item" *ngIf="userInfo" routerLink="/discussions/user/{{userInfo.username}}">Tartışmalarını Gör</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="float: right;" class="discussFooterText"><i class="clock outline icon"></i> {{discuss.createdDate | date:'dd/MM/YY HH:mm'}} </div>
   </div>
 </div>
