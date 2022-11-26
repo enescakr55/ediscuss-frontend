@@ -1,9 +1,9 @@
 <div class="discussMainDiv">
   <div style="position:relative;">
-    <h2 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Tartışmalar</h2>
+    <h2 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">{{discussionsTitle}}</h2>
     <div style="position: absolute; right:0px; top:0px;">
     <!--Filtreleme-->
-    <div class="ui floating labeled icon dropdown button">
+    <div class="ui floating labeled icon dropdown button discussDropdown">
       <i class="filter icon"></i>
       <span class="text">Filtrele</span>
       <div class="menu">
@@ -28,17 +28,11 @@
         </div>
       </div>
     </div>
-
-
-
-
-
-
     <!---->
     </div>
   </div>
   <hr style="margin:0px; margin-top:0px; margin-bottom:20px">
-  <div *ngIf="!discussions || discussions.length < 1" style="font-size: 18px; font-weight:bold; text-align: center; margin-top: 20px;"><i class="x icon"></i>Gönderi bulunamadı...</div>
+  <div *ngIf="(!discussions || discussions.length < 1) && loading == false" style="font-size: 18px; font-weight:bold; text-align: center; margin-top: 20px;"><i class="x icon"></i>Gönderi bulunamadı...</div>
   <div *ngFor="let discuss of discussions">
     <app-discuss [discuss]="discuss" [setLine2]="true"></app-discuss>
   </div>

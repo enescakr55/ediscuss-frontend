@@ -1,5 +1,5 @@
 import { ToastrService } from 'ngx-toastr';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { ContentServiceService } from 'src/app/services/content-service.service';
 import { Component, OnInit } from '@angular/core';
 import { CategorySubjects } from 'src/app/models/categorySubjects';
@@ -58,6 +58,20 @@ export class AddDiscussionComponent implements OnInit {
           }
         }
       })
+    }else{
+      this.toastrService.error("Lütfen formu kontrol edin");
+      /* let keys = Object.keys(this.addDiscussionForm.controls);
+      keys.forEach(key=>{
+        let controlErrors:any = this.addDiscussionForm.get(key)?.errors;
+        if(controlErrors != null){
+          let errors = controlErrors as ValidationErrors;
+          Object.keys(errors).forEach(keyError=>{
+            this.toastrService.error(key + " " + keyError);
+          })
+        }
+
+      })*/
+
     }
   }
   addCustomText(str:string){

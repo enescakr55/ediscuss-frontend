@@ -2,6 +2,10 @@
 * {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+@font-face {
+  font-family: Font Awesome 5 Free;
+  src: url();
+}
 .btn {
   border-radius: 13px;
   padding: 13px 25px;
@@ -11,14 +15,14 @@
   cursor: pointer;
 }
 .siteLogo::before {
-  content: "eDiscuss";
-  color: rgb(128, 128, 128);
+  content: "</bug>";
+  color: rgb(255, 255, 255);
   color: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
   font-size: 30px;
   font-weight: 100;
-  border:1px solid rgb(167, 167, 167);
-  -webkit-border-image: -webkit-gradient(linear, left top, left bottom, from(#00abeb), to(#fff), color-stop(0.5, #fff), color-stop(0.5, #66cc00)) 21 30 30 21 repeat repeat;
-  border-image: -webkit-gradient(linear, left top, left bottom, from(#00abeb), to(#fff), color-stop(0.5, #fff), color-stop(0.5, #66cc00)) 21 30 30 21 repeat repeat;
+  border:3px solid rgb(255, 255, 255);
+  /*-webkit-border-image: -webkit-gradient(linear, left top, left bottom, from(#00abeb), to(#fff), color-stop(0.5, #fff), color-stop(0.5, #66cc00)) 21 30 30 21 repeat repeat;
+  border-image: -webkit-gradient(linear, left top, left bottom, from(#00abeb), to(#fff), color-stop(0.5, #fff), color-stop(0.5, #66cc00)) 21 30 30 21 repeat repeat; */
   border-radius: 10px;
   padding: 10px;
   font-family: sans-serif;
@@ -26,6 +30,27 @@
 
 }
 .siteLogo {
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top:30px;
+
+}
+.siteLogo-black::before {
+  content: "</bug>";
+  color: rgb(0, 0, 0);
+  color: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+  font-size: 30px;
+  font-weight: 100;
+  border:3px solid rgb(0, 0, 0);
+  /*-webkit-border-image: -webkit-gradient(linear, left top, left bottom, from(#00abeb), to(#fff), color-stop(0.5, #fff), color-stop(0.5, #66cc00)) 21 30 30 21 repeat repeat;
+  border-image: -webkit-gradient(linear, left top, left bottom, from(#00abeb), to(#fff), color-stop(0.5, #fff), color-stop(0.5, #66cc00)) 21 30 30 21 repeat repeat; */
+  border-radius: 10px;
+  padding: 10px;
+  font-family: sans-serif;
+  font-weight: bold;
+
+}
+.siteLogo-black {
   text-align: center;
   margin-bottom: 30px;
   margin-top:30px;
@@ -90,6 +115,9 @@
   box-shadow: none;
   letter-spacing: 0.1em;
   padding: 10px 0px 5px;
+}
+.textInput.red input {
+  color: red;
 }
 .textInput textarea {
   width:100%;
@@ -173,13 +201,19 @@
   background-color: #000033;
 }
 .bgDiscuss {
-  background-color: #343480;
+
+
+  background: #1a1a46;
+
 }
 .bgDiscuss:hover {
-  background-color: #14145f;
+  background: #15153b;
+
 }
 .bgDiscussNA {
-  background-color: #343480;
+  background: #17173e;
+  background: #bfbfbf;
+  color:black !important;
 }
 .specialButton {
   margin:20px; border-radius:10px; padding:15px;
@@ -236,4 +270,36 @@ textarea:-ms-input-placeholder {
 
 textarea::placeholder {
   color: rgb(205, 205, 205);
+}
+.roundedProfilePhoto {
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: black;
+  height: 200px;
+  width: 200px;
+}
+/*#toast-container .toast-info {
+  background-image: none !important;
+}
+#toast-container .toast-info::before {
+  font-family: 'Icons';
+  content:'\F0F3';
+  position: absolute;
+  left:15px;
+  bottom: 35%;
+  font-size: 20px;
+  width: 50px;
+} */
+.serviceNotificationClass {
+  background-image: none !important;
+  background-color: rgba(1, 182, 218, 0.95) !important;
+}
+.serviceNotificationClass::before {
+  font-family: 'Icons';
+  content:'\F0F3';
+  position: absolute;
+  left:15px;
+  bottom: 35%;
+  font-size: 20px;
+  width: 50px;
 }

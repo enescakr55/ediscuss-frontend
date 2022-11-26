@@ -1,3 +1,4 @@
+import { UserInfoModel } from './../models/userInfo';
 import { ResetPasswordDtoModel } from './../models/resetPasswordDtoModel';
 import { ResponseTokenModel } from './../models/responseTokenModel';
 import { LoginModel } from './../models/loginModel';
@@ -45,6 +46,10 @@ export class AuthService {
   resetCodeControl(resetCode:string):Observable<ResponseModel>{
     let apiUrl = environment.apiUrl;
     return this.httpClient.get<ResponseModel>(apiUrl+'users/resetcodecontrol?code='+resetCode);
+  }
+  getMyInfo(){
+    let apiUrl = environment.apiUrl;
+    return this.httpClient.get<SingleResponseModel<UserInfoModel>>(apiUrl+"users/getmyinfo");
   }
 
 }

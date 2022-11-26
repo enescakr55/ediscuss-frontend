@@ -1,0 +1,28 @@
+<div class="settingsMain bgBackground">
+  <div class="ui stackable grid" style="box-sizing: border-box; max-width: 95%; ">
+    <div class="two column row">
+      <div class="four wide column">
+        <div class="settingSelector">
+          <h2 class="title">Ayarlar</h2>
+          <div *ngFor="let setting of settings" class="settingCategory" [class.selectedSetting]="setting.key == paramKey" [routerLink]="'/settings/'+setting.key">
+            <div><i [class]="setting.icon"></i>{{setting.value}}</div>
+          </div>
+        </div>
+
+      </div>
+      <div class="twelve wide column">
+        <div class="settingContentMain">
+          <h2 class="title">{{selectedSetting}}</h2>
+          <hr>
+          <div class="settingContent">
+
+            <app-account-settings *ngIf="paramKey == 'account'"></app-account-settings>
+            <app-preferences *ngIf="paramKey == 'preferences'"></app-preferences>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

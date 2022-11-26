@@ -1,19 +1,17 @@
-<div class="ui fixed top segment" style="background-color: #ffff99;">
+<div class="ui fixed top segment pf0" [class.scrolledNaviColor]="navbarScrollColor == true" [class.mainNaviColor]="navbarScrollColor == false">
 <div class="ui secondary menu" style="border:none;">
-  <div class="item" routerLink="/" style="cursor: pointer;"><font style="font-family:cursive,sans-serif; font-weight: bold; font-size:16px; letter-spacing: 2px;">eDiscuss</font></div>
+  <div class="item" routerLink="/" class="logoTextDiv" id="logoTextDiv"><font class="navLogo" [class.scrolledTextColor]="navbarScrollColor == true" [style]="'position:relative; top:5px; border: 3px solid '+ (navbarScrollColor == true ? 'white;' : 'black;')" style="font-family:sans-serif; font-size:22px; padding:12px; border-radius: 10px; font-weight:bold; letter-spacing: 2px;">	&#60;/bug&#62;</font></div>
   <div class="right menu">
-    <!--<div class="ui buttons">
-      <button class="ui button">Giriş</button>
-      <div class="or"></div>
-      <button class="ui positive button">Kayıt</button>
-    </div> -->
-    <a routerLink="/introduction" class=" menuItem">Hakkımızda</a>
-    <a *ngIf="isLogged == false" class=" menuItem" routerLink="/login">Giriş</a>
-    <a class="ui right dropdown" [style.display]="!isLogged ? 'none' : 'block'">
-      <a class="menuItem"><i class="teal user circle icon"></i><font>{{currentUsername}}</font><i class="dropdown icon"></i></a>
+    <a *ngIf="isLogged == true" routerLink="/notifications" class=" menuItem" [class.scrolledTextColor]="navbarScrollColor == true"><i class="teal bell outline icon"></i>Bildirimler</a>
+    <a *ngIf="isLogged == false" routerLink="/introduction" class=" menuItem" [class.scrolledTextColor]="navbarScrollColor == true"><i class="teal info icon"></i>Hakkımızda</a>
+    <a *ngIf="isLogged == false" class=" menuItem" [class.scrolledTextColor]="navbarScrollColor == true" routerLink="/login"><i class="teal user circle icon"></i>Giriş</a>
+    <a class="ui right dropdown naviDropdown" [class.scrolledTextColor]="navbarScrollColor == true" [style.display]="!isLogged ? 'none' : 'block'">
+      <a class="menuItem" [class.scrolledTextColor]="navbarScrollColor == true"><i class="teal user circle icon"></i><font>{{currentUsername}}</font><i class="dropdown icon"></i></a>
 
       <div class="menu">
-        <div (click)="logout()" class="item">Çıkış Yap</div>
+        <div class="item" style="font-weight: normal !important;">Mesajlar</div>
+        <div class="item" routerLink="/settings/account" style="font-weight: normal !important;">Ayarlar</div>
+        <div (click)="logout()" style="font-weight: normal !important;" class="item">Çıkış Yap</div>
       </div>
     </a>
 

@@ -2,6 +2,7 @@ import { ActivatedRoute, NavigationEnd, Router, UrlSegmentGroup } from '@angular
 import { UserInfoModel } from './../../models/userInfo';
 import { ContentServiceService } from 'src/app/services/content-service.service';
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-main',
@@ -12,8 +13,10 @@ export class MainComponent implements OnInit {
   userInfo:UserInfoModel;
   currentUrl:string;
   filter:boolean = false;
+  userFilter:boolean = false;
   filterValue:any;
   filterType:string;
+  profilePhotoPath:string;
   constructor(private contentService:ContentServiceService,private activatedRoute:ActivatedRoute,private router:Router) { }
 
   ngOnInit(): void {
@@ -21,10 +24,16 @@ export class MainComponent implements OnInit {
     this.subscribeRoute();
     this.currentUrl = this.router.url;
     this.isFilterControl();
+    this.isUserFilterControl();
   }
   isFilterControl(){
     if(this.currentUrl.split('/')[2]=='filter'){
       this.filter = true;
+    }
+  }
+  isUserFilterControl(){
+    if(this.currentUrl.includes("discussions/user/")){
+      this.userFilter = true;
     }
   }
   getUserInfo(){
@@ -32,6 +41,9 @@ export class MainComponent implements OnInit {
     if(currentUsername){
     this.contentService.getUserInfo(currentUsername).subscribe(response=>{
       this.userInfo = response.data;
+      let profilePhotoMainPath = environment.profilePhotoUrl;
+      this.profilePhotoPath = profilePhotoMainPath;
+      this.profilePhotoPath += this.userInfo.profilePhotoPath != "" ? this.userInfo.profilePhotoPath : "default-avatar.png";
       console.log(response.data);
     })
     }

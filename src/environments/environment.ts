@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://localhost:7146/api/'
+  apiUrl: 'https://localhost:7146/api/',
+  profilePhotoUrl:'https://localhost:7146/profile-pictures/',
+  socketServerUrl:'https://localhost:7146/'
 };
 
 /*

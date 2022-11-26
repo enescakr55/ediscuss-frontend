@@ -9,25 +9,34 @@
 }
 .categoryClass {
   padding:8px;
-  padding-left: 15px;
-  margin-bottom: 10px;
-  background-color: rgb(0, 45, 124);
-  font-size: 20px;
+  padding-left: 10px;
+  margin-bottom: 5px;
+  background: rgb(29,53,87);
+  background: -moz-linear-gradient(90deg, rgba(29,53,87,1) 0%, rgba(51,18,83,1) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(29,53,87,1) 0%, rgba(51,18,83,1) 100%);
+  background: linear-gradient(90deg, rgba(29,53,87,1) 0%, rgba(51,18,83,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1d3557",endColorstr="#331253",GradientType=1);
+  font-size: 17px;
   border-radius: 5px;
+  box-shadow: inset 0px 0px 3px 0px white;
 }
 .subjectClass {
   padding:3px;
   padding-left: 10px;
   margin-bottom: 10px;
-  font-size: 18px;
+  font-size: 15px;
   cursor: pointer;
-  border-radius: 7px;
+  border-radius: 5px;
+}
+.subjectClass:hover::after{
+  content: ' \203A\203A';
 }
 .subjectBg {
-  background-color: rgb(138, 138, 138);
+  background-color: #457b9d;
 }
 .subjectBg:hover {
-  background-color: rgb(119, 119, 119);
+  background-color: #246791;
+  transition: 0.5s;
 
 }
 
@@ -53,7 +62,8 @@
   cursor: pointer;
 }
 .active {
-  background-color: #cb0505;
+  background-color: #a8dadc;
+  color:black;
 }
 .allDiscussions {
 

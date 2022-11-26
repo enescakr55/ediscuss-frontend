@@ -1,15 +1,12 @@
-<div class="bgBackground" style="min-height: 99vh;">
-  <div style="padding:30px">
-    <div class="siteLogo"></div>
-  <div style="text-align: center; color:white; font-weight:bold;"><font>Anasayfanızda Görmek İstediğiniz Konuları Seçin</font></div>
-  <br/><br/>
-  <div style="text-align: center;">
+<div>
+
+  <div style="text-align: left; font-size: 16px; color:rgb(23, 23, 23); font-weight:bold;"><font>Sizlere daha iyi öneriler sunabilmemiz için lütfen ilgilendiğiniz içerikleri seçin.</font></div>
+  <br/>
+  <div style="text-align: left;">
   <div *ngFor="let cs of categorySubjects">
-    <div style="color:white; margin-bottom: 5px;" class="categoryText">{{cs.category.categoryName}}</div>
+    <div style="color:rgb(132, 132, 132); margin-bottom: 5px;" class="categoryText">{{cs.category.categoryName}}</div>
     <button *ngFor="let sub of cs.subject" class="ui button" style="margin-bottom: 10px;" (click)="toggleFavorites(sub.subjectId)">{{sub.subjectName}} <i *ngIf="isSelected(sub.subjectId)" style="color:green; margin-left: 3px;"class="check circle icon"></i></button>
   <br/><br/>
   </div>
   </div>
-  </div>
-  <hr/>
 </div>

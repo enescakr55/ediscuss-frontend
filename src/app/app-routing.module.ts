@@ -1,3 +1,5 @@
+import { NotificationsComponent } from './components/notifications/notifications.component';
+import { SettingsComponent } from './components/settings/settings.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { IntroductionComponent } from './components/introduction/introduction.component';
@@ -20,6 +22,7 @@ const routes: Routes = [
   {path:'discussions/all',pathMatch:'full',component:MainComponent,canActivate:[LoggedGuard]},
   {path:'discussions/interesting',pathMatch:'full',component:MainComponent,canActivate:[LoggedGuard]},
   {path:'discussions/filter/:type/:val',pathMatch:'full',component:MainComponent,canActivate:[LoggedGuard]},
+  {path:'discussions/user/:username',pathMatch:'full',component:MainComponent,canActivate:[LoggedGuard]},
   {path:'login',component:LoginComponent,pathMatch:'full',canActivate:[NotloggedGuard]},
   {path:'register',component:RegisterComponent,pathMatch:'full',canActivate:[NotloggedGuard]},
   {path:'subjectselector',component:SubjectSelectorComponent,pathMatch:'full'},
@@ -27,7 +30,9 @@ const routes: Routes = [
   {path:'new-discuss',component:AddDiscussionComponent,pathMatch:'full'},
   {path:'introduction',component:IntroductionComponent,pathMatch:'full'},
   {path:'forgot-password',component:ForgotPasswordComponent,pathMatch:'full'},
-  {path:'password-reset/:code',component:ResetPasswordComponent,pathMatch:'full'}
+  {path:'password-reset/:code',component:ResetPasswordComponent,pathMatch:'full'},
+  {path:'settings/:key',component:SettingsComponent,pathMatch:'full'},
+  {path:'notifications',component:NotificationsComponent,pathMatch:'full'}
 ];
 
 @NgModule({

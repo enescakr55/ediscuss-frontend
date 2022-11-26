@@ -1,7 +1,7 @@
 import { ToastrService } from 'ngx-toastr';
 import { FavoritesubjectsService } from './../../services/favoritesubjects.service';
 import { CategorySubjects } from './../../models/categorySubjects';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ContentServiceService } from 'src/app/services/content-service.service';
 
 @Component({
@@ -14,6 +14,7 @@ export class SubjectSelectorComponent implements OnInit {
   constructor(private contentService:ContentServiceService,private favoriteSubjectService:FavoritesubjectsService,private toastrService:ToastrService) { }
   categorySubjects:CategorySubjects[];
   myCategorySubjects:CategorySubjects[];
+  @Input() showOtherPages:boolean = false;
   ngOnInit(): void {
     this.contentService.getCategorySubjects().subscribe(response=>{
       this.categorySubjects = response.data;

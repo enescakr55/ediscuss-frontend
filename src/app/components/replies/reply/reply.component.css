@@ -1,13 +1,15 @@
 .replyDiv {
   color:rgb(190, 190, 190);
-  border:2px solid rgb(167, 167, 167);
+ /* border:2px solid rgb(167, 167, 167);
   border-left: none;
-  border-right: none;
-  -webkit-border-image: -webkit-gradient(linear, left top, left bottom, from(#00abeb), to(#fff), color-stop(0.5, #fff), color-stop(0.5, #66cc00)) 21 30 30 21 repeat repeat;
-  border-image: -webkit-gradient(linear, left top, left bottom, from(#00abeb), to(#fff), color-stop(0.5, #fff), color-stop(0.5, #66cc00)) 21 30 30 21 repeat repeat;
+  border-right: none;*/
+  border-radius: 5px;
+  /*-webkit-border-image: -webkit-gradient(linear, left top, left bottom, from(#00abeb), to(#fff), color-stop(0.5, #fff), color-stop(0.5, #66cc00)) 21 30 30 21 repeat repeat;
+  border-image: -webkit-gradient(linear, left top, left bottom, from(#00abeb), to(#fff), color-stop(0.5, #fff), color-stop(0.5, #66cc00)) 21 30 30 21 repeat repeat; */
   margin-bottom: 20px;
   padding:10px;
   word-break: break-word;
+  box-shadow: 1px 1px 1px 0px #6e6e6e;
 
 }
 

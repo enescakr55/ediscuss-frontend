@@ -27,6 +27,10 @@ import { SanitizedHtmlPipe } from './pipes/sanitized-html.pipe';
 import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { AccountSettingsComponent } from './components/settings/accountSettings/account-settings/account-settings.component';
+import { PreferencesComponent } from './components/settings/preferences/preferences.component';
+import { NotificationsComponent } from './components/notifications/notifications.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +52,11 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     LoadingComponent,
     SanitizedHtmlPipe,
     ForgotPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    SettingsComponent,
+    AccountSettingsComponent,
+    PreferencesComponent,
+    NotificationsComponent
   ],
   imports: [
     BrowserModule,

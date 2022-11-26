@@ -37,10 +37,10 @@ export class ReplyComponent implements OnInit {
   removeReply(replyId:number){
     this.contentService.deleteReply(replyId).subscribe(response=>{
       if(response.success){
-        this.toastrService.success(response.message ? response.message : "Yanıtınız silindi");
+        this.toastrService.success(response.message ? response.message : "Yanıtınız silindi","İşlem Başarılı");
         this.refresh[0] = true;
       }else{
-        this.toastrService.error(response.message ? response.message : "Yanıtınız silinemedi");
+        this.toastrService.error(response.message ? response.message : "Yanıtınız silinemedi","İşlem Başarısız");
       }
 
     }

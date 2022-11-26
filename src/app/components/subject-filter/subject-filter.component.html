@@ -1,21 +1,21 @@
 <div class="subjectFilterMain">
   <div class="subjectFilterClass">
-    <font class="title">İlgilendiğiniz Konular <div class="editIcon" title="Düzenle" routerLink="/subjectselector"><i class="pencil alternate icon"></i></div></font><br/>
+    <font class="title">İlgilendiğiniz Konular <!--<div class="editIcon" title="Düzenle" routerLink="/subjectselector"><i class="pencil alternate icon"></i></div>--></font><br/>
     <br/>
     <div style="text-align: center;"><app-loading *ngIf="loading == true"></app-loading></div>
     <div *ngFor="let categorySubject of categorySubjects" class="categorySubjectsGroup">
       <div class="categoryClass"><i class="list icon"></i> {{categorySubject.category.categoryName}}</div>
-      <div routerLink="/discussions/filter/subject/{{subject.subjectId}}" [class.active]="selectedVal == subject.subjectId" [class.subjectBg]="selectedVal != subject.subjectId" class="subjectClass" *ngFor="let subject of categorySubject.subject"><i class="tag icon"></i> {{subject.subjectName}}</div>
+      <div routerLink="/discussions/filter/subject/{{subject.subjectId}}" [class.active]="selectedVal == subject.subjectId" [class.subjectBg]="selectedVal != subject.subjectId" class="subjectClass" *ngFor="let subject of categorySubject.subject"><i class="dot circle icon"></i> {{subject.subjectName}}</div>
 
     </div>
-    <div *ngIf="!categorySubjects || categorySubjects.length == 0" class="categorySubjectsGroup">
-      <div routerLink="/subjectselector" class="subjectClass subjectBg" style="padding:8px;"><i class="mouse pointer icon"></i> İlgilendiğiniz konuları seçin</div>
+    <div *ngIf="(!categorySubjects || categorySubjects.length == 0) && loading == false" class="categorySubjectsGroup">
+      <div routerLink="/settings/preferences" class="subjectClass subjectBg" style="padding:8px;"><i class="mouse pointer icon"></i> İlgilendiğiniz konuları seçin</div>
     </div>
 
-
-    <div class="allDiscussionsFilter">
-    <div routerLink="/discussions" *ngIf="selectedVal != -1" class="subjectClass allDiscussions"><i class="filter icon"></i> Tümünü Göster</div>
+    <div class="allDiscussionsFilter" *ngIf="selectedVal != -1">
+    <div routerLink="/discussions" class="subjectClass allDiscussions"><i class="filter icon"></i> Tümünü Göster</div>
     </div>
 
   </div>
 </div>
+

@@ -1,0 +1,63 @@
+<!--<div class="profileFieldText">Adınız  </div><div class="profileFieldTextboxDiv"><input class="profileFieldTextbox" type="text"></div>
+<div class="changeProfileIcons"><div class="approveIcon"><i class="icon check"></i></div><div class="disApproveIcon"><i class="icon x circle"></i></div></div><br/>
+<div class="profileFieldText">Soyadınız  </div><div class="profileFieldTextboxDiv"><input class="profileFieldTextbox" type="text"></div>
+<div class="changeProfileIcons"><div class="approveIcon"><i class="icon check"></i></div><div class="disApproveIcon"><i class="icon x circle"></i></div></div><br/>
+<div class="profileFieldText">E-Posta Adresiniz </div><div class="profileFieldTextboxDiv"><input class="profileFieldTextbox" type="text"></div><div class="changeProfileIcons"><div class="approveIcon"><i class="icon check"></i></div><div class="disApproveIcon"><i class="icon x circle"></i></div></div>-->
+<div class="ui stackable grid container" style="box-sizing: border-box;">
+  <div class="four wide column" style=" text-align: center; vertical-align: middle;">
+    <div class="changeProfilePicture" style="display: inline-block;" (click)="changePhoto()">
+      <img class="roundedProfilePhoto" [src]="env.profilePhotoUrl+profilePictureName">
+      <i class="camera huge icon changeProfilePictureIcon"></i>
+    </div>
+
+  </div>
+  <div class="imageChangeForm" style="display: none;">
+    <input type="file" #imageInput id="profilePictureSelector" accept="image/*" (change)="getFile(imageInput)">
+  </div>
+  <div *ngIf="myInfo" class="twelve wide column">
+    <form [formGroup]="profileEditForm">
+    <div class="ui grid stackable container">
+      <div class="sixteen wide column">
+        <label class="profileEditLabel" for="name">Kullanıcı Adı</label>
+        <br/>
+        <input class="profileEditInput" disabled type="text" [value]="myInfo.username">
+      </div>
+    </div>
+    <div class="ui grid stackable container">
+
+      <div class="eight wide column">
+        <label class="profileEditLabel" for="name">Ad</label>
+        <br/>
+        <input class="profileEditInput" type="text" formControlName="firstName">
+      </div>
+      <div class="eight wide column">
+        <label class="profileEditLabel" for="name">Soyad</label>
+        <br/>
+        <input class="profileEditInput" type="text" formControlName="lastName">
+      </div>
+    </div>
+    <div class="ui grid stackable container">
+      <div class="sixteen wide column">
+        <label class="profileEditLabel" for="name">E-Posta Adresi</label>
+        <br/>
+        <input class="profileEditInput" type="text" formControlName="email">
+      </div>
+    </div>
+    <div class="ui grid stackable container">
+      <div class="sixteen wide column">
+        <div style="text-align: center;">
+          <div class="ui animated fade button" tabindex="0" (click)="editProfile()">
+            <div class="visible content" >Kaydet</div>
+            <div class="hidden content">
+              <i class="save icon"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </form>
+
+  </div>
+</div>

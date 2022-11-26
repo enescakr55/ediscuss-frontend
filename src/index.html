@@ -16,9 +16,11 @@
   <script>
     setTimeout(function(){
       $(document).ready(function() {
-        $('.ui.dropdown').dropdown();
+        $('.ui.naviDropdown').dropdown({
+          action:"hide"
+        });
       });
-    },1500)
+    },500);
 
   </script>
 </body>

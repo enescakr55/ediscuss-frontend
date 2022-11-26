@@ -1,0 +1,18 @@
+<div style="padding: 10px;">
+
+<div style="text-align: center; color:white;"><h2>Bildirimler</h2></div>
+<div class="ui centered grid container stackable " *ngFor="let notification of notificationList" style="margin-top:25px;">
+  <div class="ten wide column notificationItem" >
+    <div class="ui grid">
+      <div class="one wide column">
+          <i [class]="notification.notificationIcon"></i>
+      </div>
+      <div class="fifteen wide column">
+        <div [innerHTML]="notificationMessage(notification)"></div>
+        <div style="font-size: 13px; color:rgb(148, 147, 147); padding-top: 3px;">{{notification.sendDate | date:'dd.MM.yyyy HH:mm'}}</div>
+        </div>
+      </div>
+    </div>
+
+</div>
+</div>
