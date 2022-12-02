@@ -37,9 +37,9 @@ export class ContentServiceService {
     let apiUrl = environment.apiUrl;
     return this.httpClient.get<ListResponseModel<CategorySubjects>>(apiUrl+'subjects/getmycategorysubjects');
   }
-  getDiscussDetails(){
+  getDiscussDetails(page:number=0){
     let apiUrl = environment.apiUrl;
-    return this.httpClient.get<ListResponseModel<DiscussDetailsModel>>(apiUrl+'discussions/getdiscussdetails');
+    return this.httpClient.get<ListResponseModel<DiscussDetailsModel>>(apiUrl+'discussions/getdiscussdetails?page='+page);
   }
   getMyDiscussDetails(){
     let apiUrl = environment.apiUrl;

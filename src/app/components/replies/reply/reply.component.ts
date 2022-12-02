@@ -1,22 +1,34 @@
 import { ToastrService } from 'ngx-toastr';
 import { ContentServiceService } from 'src/app/services/content-service.service';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Component, Input, OnInit, Sanitizer, SecurityContext } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  Sanitizer,
+  SecurityContext,
+} from '@angular/core';
 import { MarkdownService, MermaidAPI } from 'ngx-markdown';
 import { ReplyDetailsModel } from 'src/app/models/replyDetailsModel';
-function enableDropdown(){
+function enableDropdown() {
   let str = $('.ui.dropdown') as any;
   str.dropdown();
 }
 @Component({
   selector: 'app-reply',
   templateUrl: './reply.component.html',
-  styleUrls: ['./reply.component.css']
+  styleUrls: ['./reply.component.css'],
 })
 export class ReplyComponent implements OnInit {
-  @Input() reply:ReplyDetailsModel;
-  @Input() refresh:boolean[];
-  constructor(private sanitizer:DomSanitizer,private markdownService:MarkdownService,private contentService:ContentServiceService,private toastrService:ToastrService) { }
+  @Input() reply: ReplyDetailsModel;
+  @Input() refresh: boolean[];
+  currentUsername: string | null = '';
+  constructor(
+    private sanitizer: DomSanitizer,
+    private markdownService: MarkdownService,
+    private contentService: ContentServiceService,
+    private toastrService: ToastrService
+  ) {}
 
   public options: MermaidAPI.Config = {
     fontFamily: '"trebuchet ms", verdana, arial, sans-serif',
@@ -25,31 +37,36 @@ export class ReplyComponent implements OnInit {
   };
   ngOnInit(): void {
     this.enableDropdownn();
+    this.currentUsername = localStorage.getItem('user');
   }
-  sanitizeHtmlContent(content:string){
+  sanitizeHtmlContent(content: string) {
     let sanitized = this.sanitizer.sanitize(SecurityContext.HTML, content);
-    return sanitized ? sanitized : "";
+    return sanitized ? sanitized : '';
     //return content.replace(/</g, '&lt;').replace(/>/g, '&gt;');
   }
-  clearTagsTextContent(content:string){
-    return ;
+  clearTagsTextContent(content: string) {
+    return;
   }
-  removeReply(replyId:number){
-    this.contentService.deleteReply(replyId).subscribe(response=>{
-      if(response.success){
-        this.toastrService.success(response.message ? response.message : "Yanıtınız silindi","İşlem Başarılı");
+  removeReply(replyId: number) {
+    this.contentService.deleteReply(replyId).subscribe((response) => {
+      if (response.success) {
+        this.toastrService.success(
+          response.message ? response.message : 'Yanıtınız silindi',
+          'İşlem Başarılı'
+        );
         this.refresh[0] = true;
-      }else{
-        this.toastrService.error(response.message ? response.message : "Yanıtınız silinemedi","İşlem Başarısız");
+      } else {
+        this.toastrService.error(
+          response.message ? response.message : 'Yanıtınız silinemedi',
+          'İşlem Başarısız'
+        );
       }
-
-    }
-    )
+    });
   }
-  enableDropdownn(){
+  enableDropdownn() {
     enableDropdown();
   }
- /* markdownRender(content:string){
+  /* markdownRender(content:string){
     console.log("original");
     let c = this.markdownService.parse(content);
     console.log(c);
@@ -61,5 +78,4 @@ export class ReplyComponent implements OnInit {
     console.log(c);
     return c;
   }*/
-
 }

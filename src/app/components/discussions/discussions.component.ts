@@ -19,6 +19,7 @@ export class DiscussionsComponent implements OnInit {
   @Input() filterValue:any;
   @Input() filterType:string;
   @Input() dList:DiscussDetailsModel[];
+  page:number = 0;
   discussionsTitle:string = "Tartışmalar";
   loading:boolean = true;
   filterDto:DiscussFilterDto = {discussTitle:"",onlyFavorites:false,subjects:[]};
@@ -26,9 +27,19 @@ export class DiscussionsComponent implements OnInit {
   discussions:DiscussDetailsModel[];
   userInfo:UserInfoModel
   ngOnInit(): void {
+    this.page = 0;
     this.enableDropdownFnc()
+    this.getDiscussions();
+    this.getUserInfo();
+  }
+  enableDropdownFnc(){
+    enableDropdown();
+  }
+  getDiscussions(){
+    console.log(this.discussType),
+    console.log(this.page)
     if(this.discussType == 'all'){
-      this.contentService.getDiscussDetails().subscribe(response=>{
+      this.contentService.getDiscussDetails(this.page).subscribe(response=>{
         this.discussions = response.data;
         console.log(this.discussions);
         this.discussionsTitle="Tartışmalar";
@@ -73,10 +84,17 @@ export class DiscussionsComponent implements OnInit {
         }
       })
     }
-    this.getUserInfo();
   }
-  enableDropdownFnc(){
-    enableDropdown();
+  nextPage(){
+    this.page++;
+    this.getDiscussions();
+  }
+  previousPage(){
+    if(this.page > 0){
+      this.page--;
+      this.getDiscussions();
+    }
+
   }
   getFilterValue(){
     return this.filterValue;

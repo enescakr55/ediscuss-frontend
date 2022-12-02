@@ -1,3 +1,4 @@
+import {  Router } from '@angular/router';
 import { NotificationModel } from './../../models/notificationModel';
 import { StringFormatterService } from './../../services/string-formatter.service';
 import { NotificationConstants } from './../../constants/notificationConstants';
@@ -12,7 +13,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotificationsComponent implements OnInit {
 
-  constructor(private notificationService:NotificationsService,private toastr:ToastrService,private stringFormatter:StringFormatterService) { }
+  constructor(private notificationService:NotificationsService,private toastr:ToastrService,private stringFormatter:StringFormatterService,private router:Router) { }
   notificationList:NotificationModel[];
 
   ngOnInit(): void {
@@ -38,6 +39,11 @@ export class NotificationsComponent implements OnInit {
   }
   notificationDate(notificationModel:NotificationModel){
 
+  }
+  navigateToActionLink(notificationModel:NotificationModel){
+    if(notificationModel.actionUrl != null && notificationModel.actionUrl != ""){
+      this.router.navigate([notificationModel.actionUrl])
+    }
   }
 
 }

@@ -1,3 +1,4 @@
+import { environment } from './../../../environments/environment';
 import { SignalrNotificationService } from './../../services/signalr-notification.service';
 import { ToastrService } from 'ngx-toastr';
 import { ContentServiceService } from 'src/app/services/content-service.service';
@@ -20,10 +21,13 @@ export class NaviComponent implements OnInit {
   loginSubscribe:any;
   currentUsername:string | null = "";
   userInfo:UserInfoModel;
+  profilePhotoPath:string;
   navbarScrollColor:boolean = false;
+  ppUrl = environment.profilePhotoUrl;
   ngOnInit(): void {
     this.updateIsLogged();
     this.getUsername();
+    this.getProfilePhoto();
     this.scrollListener();
     this.startSignalRNotification();
   }
@@ -35,12 +39,22 @@ export class NaviComponent implements OnInit {
       this.currentUsername = localStorage.getItem('user');
     }
   }
+  getProfilePhoto(){
+    if(this.isLogged){
+      this.authService.getMyInfo().subscribe({
+        next:(response)=>{
+          this.profilePhotoPath = response.data.profilePhotoPath.trim() != "" ? response.data.profilePhotoPath : "default-avatar.png";
+        }
+      })
+    }
+  }
   updateIsLogged(){
     this.isLogged = this.authService.isLogged();
     this.loginSubscribe = this.listener.loggedUserStatus$.subscribe(response=>{
       if(response == 'true'){
         this.isLogged = true;
         this.getUsername();
+        this.getProfilePhoto();
       }else{
         this.isLogged = false;
       }

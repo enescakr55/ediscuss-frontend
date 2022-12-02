@@ -1,12 +1,20 @@
 <div class="ui fixed top segment pf0" [class.scrolledNaviColor]="navbarScrollColor == true" [class.mainNaviColor]="navbarScrollColor == false">
 <div class="ui secondary menu" style="border:none;">
-  <div class="item" routerLink="/" class="logoTextDiv" id="logoTextDiv"><font class="navLogo" [class.scrolledTextColor]="navbarScrollColor == true" [style]="'position:relative; top:5px; border: 3px solid '+ (navbarScrollColor == true ? 'white;' : 'black;')" style="font-family:sans-serif; font-size:22px; padding:12px; border-radius: 10px; font-weight:bold; letter-spacing: 2px;">	&#60;/bug&#62;</font></div>
+  <!--<div class="item" routerLink="/" class="logoTextDiv" id="logoTextDiv"><font class="navLogo" [class.scrolledTextColor]="navbarScrollColor == true" [style]="'position:relative; top:5px; border: 3px solid '+ (navbarScrollColor == true ? 'white;' : 'black;')" style="font-family:sans-serif; font-size:22px; padding:12px; border-radius: 10px; font-weight:bold; letter-spacing: 2px;">	&#60;/bug&#62;</font></div>-->
+  <div class="item" routerLink="/" class="logoTextDiv" id="logoTextDiv"><font class="navLogo" [class.scrolledTextColor]="navbarScrollColor == true" [style]="'position:relative; top:7px; border: 3px solid '+ (navbarScrollColor == true ? 'white;' : 'black;')" style="font-family:sans-serif; font-size:15px; padding:5px; border-radius: 10px; font-weight:bold; letter-spacing: 2px;">	&#60;/bug&#62;</font></div>
   <div class="right menu">
-    <a *ngIf="isLogged == true" routerLink="/notifications" class=" menuItem" [class.scrolledTextColor]="navbarScrollColor == true"><i class="teal bell outline icon"></i>Bildirimler</a>
-    <a *ngIf="isLogged == false" routerLink="/introduction" class=" menuItem" [class.scrolledTextColor]="navbarScrollColor == true"><i class="teal info icon"></i>Hakkımızda</a>
-    <a *ngIf="isLogged == false" class=" menuItem" [class.scrolledTextColor]="navbarScrollColor == true" routerLink="/login"><i class="teal user circle icon"></i>Giriş</a>
+    <a style="vertical-align: middle;" *ngIf="isLogged == true" routerLink="/notifications" class=" menuItem" [class.scrolledTextColor]="navbarScrollColor == true"><i [class.black]="navbarScrollColor == false" [class.white]="navbarScrollColor == true" style="vertical-align: middle; font-size:18px" class="bell outline icon"></i></a>
+    <a *ngIf="isLogged == false" routerLink="/introduction" class=" menuItem" style="font-size: 14px; font-weight:bold; vertical-align: middle;" [class.scrolledTextColor]="navbarScrollColor == true"><i [class.black]="navbarScrollColor == false" [class.white]="navbarScrollColor == true" class="black info icon"></i>Hakkımızda</a>
+    <a *ngIf="isLogged == false" class=" menuItem" style="font-size: 14px; font-weight:bold;" [class.scrolledTextColor]="navbarScrollColor == true" routerLink="/login"><i [class.black]="navbarScrollColor == false" [class.white]="navbarScrollColor == true" class="black user circle icon"></i>Giriş</a>
     <a class="ui right dropdown naviDropdown" [class.scrolledTextColor]="navbarScrollColor == true" [style.display]="!isLogged ? 'none' : 'block'">
-      <a class="menuItem" [class.scrolledTextColor]="navbarScrollColor == true"><i class="teal user circle icon"></i><font>{{currentUsername}}</font><i class="dropdown icon"></i></a>
+      <a class="menuItem" [class.scrolledTextColor]="navbarScrollColor == true"><i style="vertical-align: middle; font-size:18px" class="edit outline icon"></i><i class="dropdown icon"></i></a>
+
+      <div class="menu">
+        <div class="item" routerLink="/new-discuss" style="font-weight: normal !important;">Yeni Tartışma</div>
+      </div>
+    </a>
+    <a class="ui right dropdown naviDropdown" [class.scrolledTextColor]="navbarScrollColor == true" [style.display]="!isLogged ? 'none' : 'block'">
+      <a class="menuItem" [class.scrolledTextColor]="navbarScrollColor == true"><img [src]="ppUrl+profilePhotoPath" style="width: 25px; height: 25px; object-fit: cover; border-radius: 100%; vertical-align: middle;"/><font style="margin-left: 5px; font-size:13px;">{{currentUsername ? "":""}}</font><i class="dropdown icon"></i></a>
 
       <div class="menu">
         <div class="item" style="font-weight: normal !important;">Mesajlar</div>

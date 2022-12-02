@@ -22,7 +22,7 @@
           <div class="ui blue empty circular label"></div>
           Announcement
         </div>-->
-        <div class="item" (click)="removeReply(reply.replyId)">
+        <div class="item" *ngIf="reply.username == currentUsername" (click)="removeReply(reply.replyId)">
           <i class="trash alternate outline icon"></i>Sil
         </div>
       </div>
