@@ -2,6 +2,83 @@
 * {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+body {
+  --primary-text-color:#ffffff;
+  --primary-placeholder-color:rgb(205, 205, 205);
+  --primary-border-color:rgb(255, 255, 255);
+  --siteLogo-color: white;
+  --siteLogo-border-color:white;
+  --input-text-color:white;
+  --input-span-color:rgba(255, 255, 255, 0.5);
+  --input-bg-color:white;
+  --discuss-text-color: #ffffff;
+  --discuss-header-color:#ffffff;
+  --discuss-background-color:#1a1a46;
+  --discuss-background-hover-color:#15153b;
+  --discuss-footer-text-color:rgb(214 214 214);
+  --discuss-createdTime-text-color:rgb(214 214 214);
+  --content-page-background:#000033;
+  --title-text-color:rgb(255, 255, 255);
+  --category-item-background:rgb(29,53,87);
+  --subject-item-background:#457b9d;
+  --subject-item-hover-background:#457b9d;
+  --subject-item-active-background:#a8dadc;
+  --special-button-background:#343480;
+  --special-button-hover-background:#14145f;
+}
+body.dark {
+  --primary-text-color:#ffffff;
+  --primary-placeholder-color:rgb(205, 205, 205);
+  --primary-border-color:rgb(255, 255, 255);
+  --siteLogo-color: white;
+  --siteLogo-border-color:white;
+  --input-text-color:white;
+  --input-span-color:rgba(255, 255, 255, 0.5);
+  --input-bg-color:white;
+  --discuss-text-color: #ffffff;
+  --discuss-header-color:#ffffff;
+  --discuss-background-color:#222226;
+  --discuss-background-hover-color:#37353a;
+  /*--discuss-background-hover-color:#1d1d21;*/
+  --discuss-footer-text-color:rgb(214 214 214);
+  --discuss-createdTime-text-color:rgb(214 214 214);
+  /* --content-page-background:#18181b; */
+  --content-page-background:#18181b;
+  --title-text-color:rgb(255, 255, 255);
+  --category-item-background:#313138;
+  --subject-item-background:#504d4d;
+  --subject-item-hover-background:rgb(46, 50, 53);
+  --subject-item-active-background:#939393;
+  --special-button-background:#222226;
+  --special-button-hover-background:#37353a;
+
+}
+
+body.light {
+  --primary-text-color:#000000;
+  --primary-placeholder-color:#282828;
+  --primary-border-color:rgb(0, 0, 0);
+  --siteLogo-color: black;
+  --siteLogo-border-color:black;
+  --input-text-color:black;
+  --input-span-color:#2196f3;
+  --input-bg-color:#2196f3;
+  --discuss-text-color: #220101;
+  --discuss-header-color:#000000;
+  --discuss-background-color:#ffffff;
+  --discuss-background-hover-color:#f8f8f8;
+  --discuss-footer-text-color:rgb(245, 245, 245);
+  --discuss-createdTime-text-color:rgb(78, 78, 78);
+  --content-page-background:#f3f3f3;
+  --title-text-color:rgb(47, 47, 47);
+  --category-item-background:#c4c4c4;
+  --subject-item-background:#FFFFFF;
+  --subject-item-hover-background:#FFFFFF;
+  --subject-item-active-background:#e6e6e6;
+  --special-button-background:#FFFFFF;
+  --special-button-hover-background:#f6f6f6;
+}
+
 @font-face {
   font-family: Font Awesome 5 Free;
   src: url();
@@ -16,11 +93,11 @@
 }
 .siteLogo::before {
   content: "</bug>";
-  color: rgb(255, 255, 255);
-  color: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+  color: var(--siteLogo-color);
+  /*color: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);*/
   font-size: 30px;
   font-weight: 100;
-  border:3px solid rgb(255, 255, 255);
+  border:3px solid var(--siteLogo-border-color);
   /*-webkit-border-image: -webkit-gradient(linear, left top, left bottom, from(#00abeb), to(#fff), color-stop(0.5, #fff), color-stop(0.5, #66cc00)) 21 30 30 21 repeat repeat;
   border-image: -webkit-gradient(linear, left top, left bottom, from(#00abeb), to(#fff), color-stop(0.5, #fff), color-stop(0.5, #66cc00)) 21 30 30 21 repeat repeat; */
   border-radius: 10px;
@@ -62,10 +139,11 @@
 }
 .transparentInput {
   background: transparent;
-  border: 1px solid white;
+  border: 1px solid var(--primary-border-color);
   font-size: 15px;
   font-weight: 100;
-  color: rgb(186, 186, 186);
+  color: var(--primary-text-color);
+
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
@@ -108,7 +186,7 @@
 .textInput input {
   width:100%;
   background-color: transparent;
-  color:#ffffff;
+  color:var(--input-text-color);
   border:none;
   outline: none;
   font-size: 20px;
@@ -122,7 +200,7 @@
 .textInput textarea {
   width:100%;
   background-color: transparent;
-  color:#ffffff;
+  color:var(--input-text-color);
   border:none;
   outline: none;
   font-size: 20px;
@@ -136,7 +214,7 @@
   position: absolute;
   left: 0;
   padding: 10px 0px 5px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--input-span-color);
   text-transform: uppercase;
   pointer-events: none;
   font-size: 20px;
@@ -158,7 +236,7 @@
   bottom:0;
   width: 100%;
   height:1px;
-  background-color: #fff;
+  background-color: var(--input-bg-color);
   overflow: hidden;
 }
 .textInput i::before {
@@ -198,30 +276,27 @@
   color: white;
 }
 .bgBackground {
-  background-color: #000033;
+  background-color: var(--content-page-background);
 }
 .bgDiscuss {
-
-
-  background: #1a1a46;
-
+  background: var(--discuss-background-color);
 }
 .bgDiscuss:hover {
-  background: #15153b;
-
+  background: var(--discuss-background-hover-color);
 }
 .bgDiscussNA {
-  background: #17173e;
+  background: var(--discuss-background-color);
 }
-.specialButton {
-  margin:20px; border-radius:10px; padding:15px;
-  background:#343480;
+
+.specialButton { border-radius:10px; padding:15px;
+  margin: 15px 0px;
+  background:var(--special-button-background);
   font-weight: bold;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   letter-spacing: 1px;
 }
 .specialButton:hover {
-  background: #14145f;
+  background: var(--special-button-hover-background);
   cursor: pointer;
 }
 .cp {
@@ -251,30 +326,32 @@ ul
   padding-left:15px
 }
 textarea::-webkit-input-placeholder {
-  color: rgb(205, 205, 205);
+  color: var(--primary-placeholder-color);
 }
 
 textarea:-moz-placeholder { /* Firefox 18- */
-  color: rgb(205, 205, 205);
+  color: var(--primary-placeholder-color);
 }
 
 textarea::-moz-placeholder {  /* Firefox 19+ */
-  color: rgb(205, 205, 205);
+  color: var(--primary-placeholder-color);
 }
 
 textarea:-ms-input-placeholder {
-  color: rgb(205, 205, 205);
+  color: var(--primary-placeholder-color);
 }
 
 textarea::placeholder {
-  color: rgb(205, 205, 205);
+  color: var(--primary-placeholder-color);
 }
 .roundedProfilePhoto {
   border-radius: 50%;
   object-fit: cover;
   background-color: black;
-  height: 200px;
-  width: 200px;
+  height: 50px;
+  width: 50px;
+  vertical-align: middle;
+  margin-right: 10px
 }
 /*#toast-container .toast-info {
   background-image: none !important;

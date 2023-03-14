@@ -49,9 +49,9 @@ export class ContentServiceService {
     let apiUrl = environment.apiUrl;
     return this.httpClient.get<SingleResponseModel<DiscussDetailsModel>>(apiUrl+'discussions/getdiscussdetailsbyid?id='+id);
   }
-  getDiscussDetailsBySubjectId(subjectId:number){
+  getDiscussDetailsBySubjectId(subjectId:number,page:number=0){
     let apiUrl = environment.apiUrl;
-    return this.httpClient.get<ListResponseModel<DiscussDetailsModel>>(apiUrl+'discussions/getdiscussdetailsbysubjectid?subjectid='+subjectId);
+    return this.httpClient.get<ListResponseModel<DiscussDetailsModel>>(apiUrl+'discussions/getdiscussdetailsbysubjectid?subjectid='+subjectId+'&page='+page);
   }
   getMyIntrestingDiscussions(){
     let apiUrl = environment.apiUrl;

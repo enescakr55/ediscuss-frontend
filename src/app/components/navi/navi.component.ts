@@ -34,6 +34,9 @@ export class NaviComponent implements OnInit {
   startSignalRNotification(){
     this.signalrNotificationService.startConnection();
   }
+  toggleDarkMode(){
+    document.getElementById("appBody")?.classList.toggle("light");
+  }
   getUsername(){
     if(this.isLogged){
       this.currentUsername = localStorage.getItem('user');
@@ -43,7 +46,7 @@ export class NaviComponent implements OnInit {
     if(this.isLogged){
       this.authService.getMyInfo().subscribe({
         next:(response)=>{
-          this.profilePhotoPath = response.data.profilePhotoPath.trim() != "" ? response.data.profilePhotoPath : "default-avatar.png";
+          this.profilePhotoPath = (response.data.profilePhotoPath != "" && response.data.profilePhotoPath != null && response.data.profilePhotoPath != undefined) ? response.data.profilePhotoPath : "default-avatar.png";
         }
       })
     }

@@ -1,7 +1,7 @@
 import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { ContentServiceService } from 'src/app/services/content-service.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { CategorySubjects } from 'src/app/models/categorySubjects';
 import { Subject } from 'rxjs';
 import { SubjectModel } from 'src/app/models/subjectModel';
@@ -9,7 +9,8 @@ import { SubjectModel } from 'src/app/models/subjectModel';
 @Component({
   selector: 'app-add-discussion',
   templateUrl: './add-discussion.component.html',
-  styleUrls: ['./add-discussion.component.css']
+  styleUrls: ['./add-discussion.component.css'],
+  encapsulation:ViewEncapsulation.None
 })
 export class AddDiscussionComponent implements OnInit {
 
@@ -50,6 +51,8 @@ export class AddDiscussionComponent implements OnInit {
         if(response.success){
           this.toastrService.success("Tartışma başarıyla eklendi");
           this.addDiscussionForm.reset();
+          this.createAddDiscussionForm();
+          addDiscussionValues = Object.assign({},this.addDiscussionForm.value);
         }else{
           if(response.message){
             this.toastrService.error(response.message);

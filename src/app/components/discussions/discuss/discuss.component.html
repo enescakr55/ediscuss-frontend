@@ -1,6 +1,6 @@
 <div class="discussDiv" [class.cp]="setLine2" [class.bgDiscuss]="setLine2" [class.bgDiscussNA]="!setLine2">
   <div class="discussHeader" [routerLink]="'/replies/'+discuss.discussId">
-    <div class="discussHeaderText"><i class="comment alternate icon"></i> {{discuss.discussHeader}}<div *ngIf="!setLine2 && getUser() == discuss.username" (click)="deleteDiscuss(discuss.discussId)" style="float:right;" class="cp"><i class="trash alternate outline icon"></i>Sil</div></div>
+    <div class="discussHeaderText"><i class="quote right icon" style="font-size:12px;"></i> {{discuss.discussHeader}}<div *ngIf="!setLine2 && getUser() == discuss.username" (click)="deleteDiscuss(discuss.discussId)" style="float:right;" class="cp"><i class="trash alternate outline icon"></i>Sil</div></div>
   </div>
   <div class="discussBody" [routerLink]="'/replies/'+discuss.discussId">
     <div class="discussBodyText">
@@ -10,8 +10,8 @@
     </div>
   </div>
   <div class="discussFooter" >
-    <font style="font-size: 13px; font-weight:normal;"><i class="tag icon" ></i> {{discuss.subjectName}}</font><br/>
-    <font style="font-size: 13px; font-weight:normal;" (pointerenter)="getUserInfo(discuss.username)" class="userFont"><i class="user circle outline icon" ></i> {{discuss.username}}</font>
+    <font style="font-size: 11px; font-weight:normal; background-color: rgb(0, 98, 118); padding: 5px; border-radius: 5px; margin-right: 5px;"><i class="tag icon" ></i>{{discuss.subjectName}}</font>
+    <font style="font-size: 11px; font-weight:normal; cursor: progress; background-color: rgb(98, 0, 0); padding: 5px; border-radius: 5px; margin-right: 5px;" (pointerenter)="getUserInfo(discuss.username)" class="userFont"><i class="user circle outline icon"></i>{{discuss.username}}</font>
     <div class="ui fluid popup bottom left transition hidden" style="inset: 563.866px auto auto 0.994385px;">
       <div class="ui two column relaxed divided grid" *ngIf="userInfoLoading == false">
         <div *ngIf="userInfo && userInfo.username" class="column" style="text-align: center;">
@@ -40,6 +40,6 @@
         </div>
       </div>
     </div>
-    <div style="float: right;" class="discussFooterText"><i class="clock outline icon"></i> {{discuss.createdDate | date:'dd/MM/YY HH:mm'}} </div>
+    <div style="font-size:11px; float: right; padding: 5px; border-radius: 5px; position: relative; bottom: 3px; left: 3px; color: var(--discuss-createdTime-text-color);"  class="discussFooterText"><i class="clock outline icon"></i> {{discuss.createdDate | date:'dd/MM/YY HH:mm'}} </div>
   </div>
 </div>

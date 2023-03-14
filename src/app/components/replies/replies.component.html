@@ -1,4 +1,4 @@
-<div *ngIf="replies && discuss" class="bgBackground" style="min-height:99vh; color: white; padding-top: 30px;">
+<div *ngIf="replies && discuss" class="bgBackground" style="min-height:99vh; color: var(--primary-text-color); padding-top: 30px;">
   <div class="ui grid">
     <div class="three column row">
       <div class="four wide column borderS"></div>
@@ -6,7 +6,7 @@
         <div class="one column row">
           <div class="column borderS">
             <div class="discussMainDiv">
-            <h2>Yanıtlar</h2>
+            <h2 style="color:var(--primary-text-color)">Yanıtlar</h2>
             <hr style="margin:0px; margin-top:0px; margin-bottom:20px">
             <app-discuss [discuss]="discuss"></app-discuss>
             <div *ngFor="let reply of replies">

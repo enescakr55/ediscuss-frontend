@@ -31,7 +31,12 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { AccountSettingsComponent } from './components/settings/accountSettings/account-settings/account-settings.component';
 import { PreferencesComponent } from './components/settings/preferences/preferences.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
+export function HttpLoaderFactory(httpClient:HttpClient){
+  return new TranslateHttpLoader(httpClient);
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,6 +70,14 @@ import { NotificationsComponent } from './components/notifications/notifications
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    TranslateModule.forRoot({
+      loader:{
+        provide:TranslateLoader,
+        useFactory:HttpLoaderFactory,
+        deps:[HttpClient]
+      },
+      defaultLanguage:"tr"
+    }),
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',
     }),

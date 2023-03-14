@@ -1,9 +1,9 @@
 import { DiscussFilterDto } from './../../models/discussFilterDto';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserInfoModel } from './../../models/userInfo';
 import { ContentServiceService } from 'src/app/services/content-service.service';
 import { DiscussDetailsModel } from './../../models/discussDetailsModel';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 //import * as dropdown  from '../../../assets/dropdown.js'
 function enableDropdown(){
   let str = $('.ui.discussDropdown') as any;
@@ -12,7 +12,8 @@ function enableDropdown(){
 @Component({
   selector: 'app-discussions',
   templateUrl: './discussions.component.html',
-  styleUrls: ['./discussions.component.css']
+  styleUrls: ['./discussions.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class DiscussionsComponent implements OnInit {
   @Input() discussType:string = 'all';
@@ -23,7 +24,7 @@ export class DiscussionsComponent implements OnInit {
   discussionsTitle:string = "Tartışmalar";
   loading:boolean = true;
   filterDto:DiscussFilterDto = {discussTitle:"",onlyFavorites:false,subjects:[]};
-  constructor(private contentService:ContentServiceService,private activatedRoute:ActivatedRoute) { }
+  constructor(private contentService:ContentServiceService,private activatedRoute:ActivatedRoute,private router:Router) { }
   discussions:DiscussDetailsModel[];
   userInfo:UserInfoModel
   ngOnInit(): void {
@@ -64,7 +65,7 @@ export class DiscussionsComponent implements OnInit {
           this.filterType = params['type'];
           let val = parseInt(this.filterValue);
 
-          this.contentService.getDiscussDetailsBySubjectId(val).subscribe(response=>{
+          this.contentService.getDiscussDetailsBySubjectId(val,this.page).subscribe(response=>{
             this.discussions = response.data;
             console.log(this.discussions);
             this.loading = false;
@@ -72,7 +73,6 @@ export class DiscussionsComponent implements OnInit {
         })
     }else if(this.discussType == 'userdiscussions'){
       let username:string = "";
-      console.log("buraya girdi")
       this.activatedRoute.params.subscribe(params=>{
         username = params['username'];
       })
@@ -114,19 +114,23 @@ export class DiscussionsComponent implements OnInit {
       this.discussions = response.data;
       this.filterDto.onlyFavorites = true;
     })
+    this.router.navigate(['/discussions/advancedFilter']);
   }
   showAll(){
     this.contentService.getDiscussDetails().subscribe(response=>{
       this.discussions = response.data;
       this.filterDto.onlyFavorites = false;
     })
+    this.router.navigate(['/discussions/advancedFilter']);
   }
   filter(){
+
     this.contentService.getFilteredDiscussions(this.filterDto).subscribe({
       next:(response)=>{
         this.discussions = response.data;
       }
     })
+    this.router.navigate(['/discussions/advancedFilter']);
   }
 
 }

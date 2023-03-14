@@ -73,7 +73,13 @@
 .changeProfilePicture {
   position: relative;
 }
-
+.bigRoundedProfilePhoto {
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: black;
+  height: 200px;
+  width: 200px;
+}
 .changeProfilePictureIcon {
   position: absolute;
   top:30%;

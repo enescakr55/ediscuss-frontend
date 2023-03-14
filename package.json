@@ -19,6 +19,8 @@
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
     "@microsoft/signalr": "^6.0.10",
+    "@ngx-translate/core": "^14.0.0",
+    "@ngx-translate/http-loader": "^7.0.0",
     "@types/mermaid": "^8.2.9",
     "bootstrap-icons": "^1.9.1",
     "jquery": "^3.6.0",

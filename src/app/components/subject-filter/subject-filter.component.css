@@ -11,20 +11,21 @@
   padding:8px;
   padding-left: 10px;
   margin-bottom: 5px;
-  background: rgb(29,53,87);
-  background: -moz-linear-gradient(90deg, rgba(29,53,87,1) 0%, rgba(51,18,83,1) 100%);
+  background: var(--category-item-background);
+  /*background: -moz-linear-gradient(90deg, rgba(29,53,87,1) 0%, rgba(51,18,83,1) 100%);
   background: -webkit-linear-gradient(90deg, rgba(29,53,87,1) 0%, rgba(51,18,83,1) 100%);
-  background: linear-gradient(90deg, rgba(29,53,87,1) 0%, rgba(51,18,83,1) 100%);
+  background: linear-gradient(90deg, rgba(29,53,87,1) 0%, rgba(51,18,83,1) 100%); */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1d3557",endColorstr="#331253",GradientType=1);
-  font-size: 17px;
+  font-size: 15px;
+  font-weight: bold;
   border-radius: 5px;
-  box-shadow: inset 0px 0px 3px 0px white;
+  /*box-shadow: inset 0px 0px 3px 0px white;*/
 }
 .subjectClass {
   padding:3px;
   padding-left: 10px;
   margin-bottom: 10px;
-  font-size: 15px;
+  font-size: 13px;
   cursor: pointer;
   border-radius: 5px;
 }
@@ -32,17 +33,17 @@
   content: ' \203A\203A';
 }
 .subjectBg {
-  background-color: #457b9d;
+  background-color: var(--subject-item-background);
 }
 .subjectBg:hover {
-  background-color: #246791;
+  background-color: var(--subject-item-hover-background);
   transition: 0.5s;
 
 }
 
 .title {
   font-size: 1.5em;
-  color: white;
+  color: var(--title-text-color);
   display: block;
   margin-bottom: 10px;
   padding-left: 10px;
@@ -62,13 +63,14 @@
   cursor: pointer;
 }
 .active {
-  background-color: #a8dadc;
+  background-color: var(--subject-item-active-background);
   color:black;
 }
 .allDiscussions {
 
   border-bottom: none;
-  background-color: rgb(61, 113, 255);
+  /*background-color: rgb(61, 113, 255); */
+  background-color: var(--special-button-background);
 }
 .allDiscussionsFilter {
   margin-top: 8px;

@@ -10,9 +10,26 @@ import {
 } from '@angular/core';
 import { MarkdownService, MermaidAPI } from 'ngx-markdown';
 import { ReplyDetailsModel } from 'src/app/models/replyDetailsModel';
+import { UserInfoModel } from 'src/app/models/userInfo';
+import { UserService } from 'src/app/services/user.service';
+import { environment } from 'src/environments/environment';
 function enableDropdown() {
   let str = $('.ui.dropdown') as any;
   str.dropdown();
+}
+function enablePopup(){
+  setTimeout(()=>{
+    let pop = $('.userFont') as any;
+    pop.popup({
+      inline     : true,
+      hoverable  : true,
+      position   : 'bottom left',
+      delay: {
+        show: 300,
+        hide: 800
+      }
+    })
+  },200);
 }
 @Component({
   selector: 'app-reply',
@@ -22,12 +39,16 @@ function enableDropdown() {
 export class ReplyComponent implements OnInit {
   @Input() reply: ReplyDetailsModel;
   @Input() refresh: boolean[];
+  userInfoLoading:boolean = false;
+  userInfo:UserInfoModel;
+  mainPhotoUrl:string;
   currentUsername: string | null = '';
   constructor(
     private sanitizer: DomSanitizer,
     private markdownService: MarkdownService,
     private contentService: ContentServiceService,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private userService:UserService
   ) {}
 
   public options: MermaidAPI.Config = {
@@ -36,8 +57,21 @@ export class ReplyComponent implements OnInit {
     theme: MermaidAPI.Theme.Dark,
   };
   ngOnInit(): void {
+    enablePopup();
+    this.mainPhotoUrl = environment.profilePhotoUrl;
     this.enableDropdownn();
     this.currentUsername = localStorage.getItem('user');
+  }
+  getUserInfo(username:string){
+    this.userInfoLoading = true;
+    this.userService.getUserInfo(username).subscribe(response=>{
+      this.userInfo = response.data;
+      if(this.userInfo.profilePhotoPath == ""){
+        this.userInfo.profilePhotoPath = "default-avatar.png";
+      }
+      console.log(response);
+      this.userInfoLoading = false;
+    });
   }
   sanitizeHtmlContent(content: string) {
     let sanitized = this.sanitizer.sanitize(SecurityContext.HTML, content);

@@ -1,5 +1,6 @@
 import { RemoteServerService } from './services/remote-server.service';
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'eDiscuss';
-  constructor(private remoteServerService:RemoteServerService){}
+  constructor(private remoteServerService:RemoteServerService,private translateService:TranslateService){
+    this.translateService.addLangs(["tr"]);
+    this.translateService.use("tr");
+  }
   ngOnInit(){
     this.getCSS();
+
   }
   getCSS(){
       setTimeout(() => {

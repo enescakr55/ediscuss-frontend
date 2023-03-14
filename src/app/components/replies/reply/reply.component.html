@@ -4,8 +4,37 @@
     <markdown mermaid katex ngPreserveWhitespaces [data]="reply.replyText"></markdown>
   </div>
   <div class="replyFooter">
-    <font style="font-size: 13px; font-weight:normal;"><i class="user circle outline icon"></i> {{reply.username}}</font>
-    <div style="float: right;" class="replyFooterText"><i class="clock outline icon"></i> {{reply.createdDate | date:'dd/MM/YY HH:mm'}}
+    <!--<font style="font-size: 11px; font-weight:normal; cursor: progress; background-color: rgb(98, 0, 0); padding: 5px; border-radius: 5px; margin-right: 5px;"><i class="user circle outline icon"></i> {{reply.username}}</font>-->
+    <font style="font-size: 11px; font-weight:normal; cursor: progress; background-color: rgb(98, 0, 0); padding: 5px; border-radius: 5px; margin-right: 5px;" (pointerenter)="getUserInfo(reply.username)" class="userFont"><i class="user circle outline icon"></i>{{reply.username}}</font>
+    <div class="ui fluid popup bottom left transition hidden" style="inset: 563.866px auto auto 0.994385px;">
+      <div class="ui two column relaxed divided grid" *ngIf="userInfoLoading == false">
+        <div *ngIf="userInfo && userInfo.username" class="column" style="text-align: center;">
+          <!-- Profile Photo -->
+          <img class="discussUserProfilePhoto" [src]="mainPhotoUrl+userInfo.profilePhotoPath">
+          <p class="discussUserName">{{userInfo.firstName}} {{userInfo.lastName}}</p>
+          <div *ngIf="userInfo.username != currentUsername" class="ui vertical animated button" tabindex="0">
+            <div class="visible content">Mesaj</div>
+            <div class="hidden content">
+              <i class="envelope icon"></i>
+            </div>
+          </div>
+          <div *ngIf="userInfo.username != currentUsername" class="ui vertical animated button" tabindex="0">
+            <div class="visible content">Takip Et</div>
+            <div class="hidden content">
+              <i class="user plus icon"></i>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <h4 class="ui header">İlgi Alanları</h4>
+          <div class="ui link list">
+            <a class="item">Mesaj Gönder</a>
+            <a class="item" *ngIf="userInfo" routerLink="/discussions/user/{{userInfo.username}}">Tartışmalarını Gör</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:11px; float: right; padding: 5px; border-radius: 5px; position: relative; bottom: 3px; left: 3px; color: var(--discuss-createdTime-text-color);" class="replyFooterText"><i class="clock outline icon"></i> {{reply.createdDate | date:'dd/MM/YY HH:mm'}}
     <!---->
     <div class="ui right pointing dropdown icon" (load)="enableDropdownn()">
       <i class="settings icon"></i>

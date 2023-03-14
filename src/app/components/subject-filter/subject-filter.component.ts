@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-subject-filter',
   templateUrl: './subject-filter.component.html',
   styleUrls: ['./subject-filter.component.css']
+
 })
 export class SubjectFilterComponent implements OnInit {
   selectedVal:number = -1;

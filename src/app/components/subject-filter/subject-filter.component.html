@@ -1,7 +1,6 @@
 <div class="subjectFilterMain">
   <div class="subjectFilterClass">
     <font class="title">İlgilendiğiniz Konular <!--<div class="editIcon" title="Düzenle" routerLink="/subjectselector"><i class="pencil alternate icon"></i></div>--></font><br/>
-    <br/>
     <div style="text-align: center;"><app-loading *ngIf="loading == true"></app-loading></div>
     <div *ngFor="let categorySubject of categorySubjects" class="categorySubjectsGroup">
       <div class="categoryClass"><i class="list icon"></i> {{categorySubject.category.categoryName}}</div>

@@ -5,7 +5,7 @@
 }
 .addReply {
   border-radius: 5px;
-  color:rgb(205, 205, 205);
+  color:var(--primary-text-color);
   /*-webkit-border-image: -webkit-gradient(linear, left top, left bottom, from(#00abeb), to(#fff), color-stop(0.5, #fff), color-stop(0.5, #66cc00)) 21 30 30 21;
   border-image: -webkit-gradient(linear, left top, left bottom, from(#00abeb), to(#fff), color-stop(0.5, #fff), color-stop(0.5, #66cc00)) 21 30 30 21 repeat repeat;*/
   margin-bottom: 20px;

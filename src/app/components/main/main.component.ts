@@ -43,7 +43,7 @@ export class MainComponent implements OnInit {
       this.userInfo = response.data;
       let profilePhotoMainPath = environment.profilePhotoUrl;
       this.profilePhotoPath = profilePhotoMainPath;
-      this.profilePhotoPath += this.userInfo.profilePhotoPath != "" ? this.userInfo.profilePhotoPath : "default-avatar.png";
+      this.profilePhotoPath += this.userInfo.profilePhotoPath != "" && this.userInfo.profilePhotoPath != null ? this.userInfo.profilePhotoPath : "default-avatar.png";
       console.log(response.data);
     })
     }

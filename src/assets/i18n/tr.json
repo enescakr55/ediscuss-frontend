@@ -1,0 +1,17 @@
+{
+  "loginPage":{
+    "login-btn":"Giriş Yap",
+    "register-btn":"Yeni misin ? <br/> &#60;/bug&#62; ailesine katıl",
+    "username-placeholder":"Kullanıcı Adı",
+    "password-placeholder":"Şifre",
+    "forgot-password-btn":"Şifremi Unuttum"
+  },
+  "registerPage":{
+    "firstname-placeholder":"Adınız",
+    "lastname-placeholder":"Soyadınız",
+    "username-placeholder":"Kullanıcı Adı",
+    "email-placeholder":"E-Posta",
+    "password-placeholder":"Şifre",
+    "privacy-policy-text":"Siteye üye olarak <a href='/privacy-policy' style='color: rgb(86, 156, 253);'>gizlilik politikamızı</a> kabul etmiş olursun"
+  }
+}

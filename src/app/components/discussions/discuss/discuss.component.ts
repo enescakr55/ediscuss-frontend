@@ -3,7 +3,7 @@ import { UserService } from './../../../services/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { ContentServiceService } from 'src/app/services/content-service.service';
 import { DiscussDetailsModel } from './../../../models/discussDetailsModel';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { UserInfoModel } from 'src/app/models/userInfo';
 import { map, timeout } from 'rxjs/operators';
@@ -24,7 +24,8 @@ function enablePopup(){
 @Component({
   selector: 'app-discuss',
   templateUrl: './discuss.component.html',
-  styleUrls: ['./discuss.component.css']
+  styleUrls: ['./discuss.component.css'],
+  encapsulation:ViewEncapsulation.None
 })
 export class DiscussComponent implements OnInit {
   @Input() discuss:DiscussDetailsModel;

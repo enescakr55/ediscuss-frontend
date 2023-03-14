@@ -56,7 +56,7 @@ export class AccountSettingsComponent implements OnInit {
   getMyInfo(){
     this.authService.getMyInfo().subscribe(response=>{
       this.myInfo = response.data
-      if(response.data.profilePhotoPath != ""){
+      if(response.data.profilePhotoPath != "" && response.data.profilePhotoPath != null){
         this.profilePictureName = response.data.profilePhotoPath;
       }
 

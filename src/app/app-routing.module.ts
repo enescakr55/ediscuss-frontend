@@ -20,6 +20,7 @@ const routes: Routes = [
   {path:'discussions',pathMatch:'full',component:MainComponent,canActivate:[LoggedGuard]},
   {path:'discussions/my',pathMatch:'full',component:MainComponent,canActivate:[LoggedGuard]},
   {path:'discussions/all',pathMatch:'full',component:MainComponent,canActivate:[LoggedGuard]},
+  {path:'discussions/advancedFilter',pathMatch:'full',component:MainComponent,canActivate:[LoggedGuard]},
   {path:'discussions/interesting',pathMatch:'full',component:MainComponent,canActivate:[LoggedGuard]},
   {path:'discussions/filter/:type/:val',pathMatch:'full',component:MainComponent,canActivate:[LoggedGuard]},
   {path:'discussions/user/:username',pathMatch:'full',component:MainComponent,canActivate:[LoggedGuard]},

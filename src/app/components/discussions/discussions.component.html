@@ -1,9 +1,9 @@
 <div class="discussMainDiv">
   <div style="position:relative;">
-    <h2 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">{{discussionsTitle}}</h2>
+    <h2 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: var(--title-text-color);" >{{discussionsTitle}}</h2>
     <div style="position: absolute; right:0px; top:0px;">
     <!--Filtreleme-->
-    <div class="ui floating labeled icon dropdown button discussDropdown">
+    <!--<div class="ui floating labeled icon dropdown button discussDropdown">
       <i class="filter icon"></i>
       <span class="text">Filtrele</span>
       <div class="menu">
@@ -27,13 +27,13 @@
           Tümü
         </div>
       </div>
-    </div>
+    </div>-->
     <!---->
     </div>
   </div>
   <br/>
   <!--<hr style="margin:0px; margin-top:0px; margin-bottom:20px">-->
-  <div *ngIf="(!discussions || discussions.length < 1) && loading == false" style="font-size: 18px; font-weight:bold; text-align: center; margin-top: 20px;"><i class="x icon"></i>Gönderi bulunamadı...</div>
+  <div *ngIf="(!discussions || discussions.length < 1) && loading == false" style="font-size: 18px; font-weight:bold; text-align: center; margin-top: 20px; color: var(--primary-text-color);"><i class="x icon"></i>Gönderi bulunamadı...</div>
   <div *ngFor="let discuss of discussions">
     <app-discuss [discuss]="discuss" [setLine2]="true"></app-discuss>
   </div>
@@ -42,7 +42,7 @@
     <div class="item">
       <div class="ui buttons">
         <button class="ui button" (click)="previousPage()"><i class="angle left icon"></i></button>
-        <button class="ui button secondary">{{page}}</button>
+        <button class="ui button secondary">{{(page+1)}}</button>
         <button class="ui button" (click)="nextPage()"><i class="angle right icon"></i></button>
       </div>
     </div>

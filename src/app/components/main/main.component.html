@@ -1,4 +1,4 @@
-<div class="bgBackground" style="min-height:99vh; color: white; padding-top: 30px;">
+<div class="bgBackground" style="min-height:99vh; color: var(--title-text-color); padding-top: 30px;">
   <div class="ui stackable  grid">
     <div class="three column row">
       <div class="four wide column borderS">
@@ -9,6 +9,7 @@
           <div class="column borderS">
             <app-discussions *ngIf="filter == false && currentUrl == '/'" discussType="all"></app-discussions>
             <app-discussions *ngIf="filter == false && currentUrl == '/discussions'" discussType="all"></app-discussions>
+            <app-discussions *ngIf="filter == false && currentUrl == '/discussions/advancedFilter'" discussType="advanced"></app-discussions>
             <app-discussions *ngIf="filter == false && currentUrl == '/discussions/my'" discussType="my"></app-discussions>
             <app-discussions *ngIf="filter == false && currentUrl == '/discussions/interesting'" discussType="favorites"></app-discussions>
             <app-discussions *ngIf="userFilter" discussType="userdiscussions"></app-discussions>
@@ -19,10 +20,13 @@
 
       </div>
       <div *ngIf="userInfo" class="four wide column borderS">
-        <div style="text-align: center;">
+        <div style="text-align: center; padding: 15px;">
           <!--<i class="circular inverted teal huge user icon"></i>-->
+          <div style="padding: 5px; position: relative; text-align: left;">
           <img class="roundedProfilePhoto" [src]="profilePhotoPath">
-          <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight:bold; font-size:20px; margin-top:10px">{{userInfo.firstName}} {{userInfo.lastName}}</div>
+          <div style="display:inline-block; position: relative; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight:600; font-size:20px; margin-top:10px">{{userInfo.firstName}} {{userInfo.lastName}}<div style="position:absolute; font-size: 13px; color: gray;">Profile Git</div></div>
+          <div routerLink="/settings/account" style="cursor:pointer; float: right; position: absolute; top:30%; right: 0px; font-size: 20px;"><i class="cog icon"></i></div>
+        </div>
           <div class="specialButton" routerLink="/new-discuss">Yeni tartışma oluştur</div>
           <div class="specialButton" routerLink="/discussions/my">Tartışmalarım</div>
         </div>
