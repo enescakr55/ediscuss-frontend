@@ -54,7 +54,7 @@ export class AddReplyComponent implements OnInit {
         }
       })
     }else{
-      this.toastrService.error("Formu kontrol edin")
+      this.toastrService.error("Yanıt boş olamaz")
     }
   }
   getTextValue(){

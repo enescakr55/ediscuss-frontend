@@ -7,6 +7,7 @@
       "projectType": "application",
       "schematics": {},
       "root": "",
+
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
@@ -23,7 +24,7 @@
               "src/assets"
             ],
             "styles": [
-
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "node_modules/ngx-toastr/toastr.css",
               "node_modules/semantic-ui-css/semantic.min.css",
               "node_modules/prismjs/themes/prism-okaidia.css",
@@ -31,7 +32,8 @@
               "node_modules/prismjs/plugins/line-highlight/prism-line-highlight.css",
               "node_modules/prismjs/plugins/command-line/prism-command-line.css",
               "node_modules/katex/dist/katex.min.css",
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/monaco-editor/min/vs/editor/editor.main.css"
 
             ],
             "scripts": [
@@ -48,7 +50,10 @@
               "node_modules/katex/dist/contrib/auto-render.min.js",
               "node_modules/mermaid/dist/mermaid.min.js",
               "node_modules/clipboard/dist/clipboard.min.js",
-              "src/assets/dropdown.js"
+              "src/assets/dropdown.js",
+              "src/assets/monaco-editor/min/vs/loader.js",
+              "src/assets/monaco-editor/min/vs/editor/editor.main.nls.js",
+              "src/assets/monaco-editor/min/vs/editor/editor.main.js"
 
 
             ]
@@ -59,7 +64,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "5mb"
+                  "maximumError": "10mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -123,5 +128,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

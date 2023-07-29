@@ -23,6 +23,7 @@ export class DiscussionsComponent implements OnInit {
   page:number = 0;
   discussionsTitle:string = "Tartışmalar";
   loading:boolean = true;
+  pageLoading:boolean = false;
   filterDto:DiscussFilterDto = {discussTitle:"",onlyFavorites:false,subjects:[]};
   constructor(private contentService:ContentServiceService,private activatedRoute:ActivatedRoute,private router:Router) { }
   discussions:DiscussDetailsModel[];
@@ -36,7 +37,10 @@ export class DiscussionsComponent implements OnInit {
   enableDropdownFnc(){
     enableDropdown();
   }
-  getDiscussions(){
+  getDiscussions(requestPage:boolean = true){
+    if(requestPage){
+      this.pageLoading = true;
+    }
     console.log(this.discussType),
     console.log(this.page)
     if(this.discussType == 'all'){
@@ -45,11 +49,13 @@ export class DiscussionsComponent implements OnInit {
         console.log(this.discussions);
         this.discussionsTitle="Tartışmalar";
         this.loading = false;
+        this.pageLoading = false;
       })
     }else if(this.discussType == 'favorites'){
       this.contentService.getMyIntrestingDiscussions().subscribe(response=>{
         this.discussions = response.data;
         this.loading = false;
+        this.pageLoading = false;
       })
 
     }else if(this.discussType == 'my'){
@@ -69,6 +75,7 @@ export class DiscussionsComponent implements OnInit {
             this.discussions = response.data;
             console.log(this.discussions);
             this.loading = false;
+            this.pageLoading = false;
           });
         })
     }else if(this.discussType == 'userdiscussions'){
@@ -81,6 +88,7 @@ export class DiscussionsComponent implements OnInit {
           this.discussionsTitle = "@"+username +"'in Tartışmaları";
           this.discussions = result.data;
           this.loading = false;
+          this.pageLoading = false;
         }
       })
     }

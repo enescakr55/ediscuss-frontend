@@ -2,7 +2,6 @@
     display: inline-block;
     padding: 0.5em 0.2em;
     margin: 0.5em;
-    border-radius: 0.25em;
     color: rgb(23, 23, 23);
     text-decoration: none;
     font-size: 1.1em;
@@ -35,12 +34,18 @@
 .scrolledTextColor {
   color:white;
 }
+.scrolledTextColor:hover {
+  color:rgb(215, 215, 215);
+}
 .pf0 {
   position: fixed;
   width: 100%;
   top:0px;
   z-index: 10;
   padding:0px 10px;
+}
+.right.menu {
+  align-items: center;
 }
 /*.navLogo::before {
   content: '';
@@ -63,6 +68,10 @@
   color: rgb(0, 0, 0);
   -webkit-animation:logoTextAnimation2 2s;
   animation: logoTextAnimation2 2s;
+  display: flex;
+  flex-direction:column;
+  flex-wrap: nowrap;
+  justify-content: center;
   /*border:5px outset rgb(229, 229, 229);*/
   /*box-shadow: 2px 2px 3px 2px rgb(200, 200, 200); */
 
@@ -97,7 +106,14 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#833ab4",endCo
             transform: rotate3d(0deg);
   }
 }
-
+.menuItemLine:hover {
+  content: '';
+  border-bottom: 3px solid rgb(114, 114, 114);
+}
+.menuItemLineDarkNavbar:hover {
+  content: '';
+  border-bottom: 3px solid rgb(255, 255, 255);
+}
 @-webkit-keyframes logoTextAnimation2 {
   0% {
     -webkit-transform: rotate3d(-1, 0, 0, -360deg);
@@ -117,4 +133,87 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#833ab4",endCo
     -webkit-transform: rotate3d(0deg);
             transform: rotate3d(0deg);
   }
+}
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000000;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: rgb(255, 255, 255);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+input:checked + .slider:before {
+  background-color: rgb(0, 56, 167);
+
+}
+
+input:checked + .slider {
+  background-color: #ffffff;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+.darkMode {
+  z-index: 5;
+  position: absolute;
+  left: 10px;
+  bottom: 8px;
+
+  color: #292929;
+}
+.closeDarkMode{
+
+  right: 10px;
+  bottom: 8px;
+  z-index: 5;
+  position: absolute;
+
+  color: #ffdf29;
 }

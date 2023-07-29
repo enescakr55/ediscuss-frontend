@@ -19,8 +19,7 @@
     </form>
     <div class="forgotPasswordMain"><div class="forgotPassword" routerLink="/forgot-password">{{"loginPage.forgot-password-btn" | translate}} </div></div>
     <br/>
-    <button class="btn bgYellow" (click)="login()" *ngIf="loading==false">{{'loginPage.login-btn' | translate}}</button>
-    <button class="btn bgYellow" (click)="login()" *ngIf="loading==true"><app-loading></app-loading></button>
+    <button class="btn bgYellow" (click)="login()" [disabled]="loading == true">{{'loginPage.login-btn' | translate}} <app-loading *ngIf="loading==true"></app-loading ></button>
     <br/>
     <button class="btn bgTransparent textYellow registerBtn" routerLink="/register" innerHTML="{{'loginPage.register-btn' | translate}}"></button>
   </div>

@@ -1,0 +1,39 @@
+<div class="tryweb-menu">
+  <div class="tryweb-inf">Try Web</div> <div class="betaText">Beta</div>
+  <div (click)="zoomIn()" class="ui animated button btnPadding" tabindex="0">
+    <div class="hidden content"> Zoom In </div>
+    <div class="visible content">
+      <i class="zoom in icon"></i>
+    </div>
+  </div>
+  <div (click)="zoomOut()" class="ui animated button btnPadding" tabindex="0">
+    <div class="hidden content"> Zoom Out </div>
+    <div class="visible content">
+      <i class="zoom out icon"></i>
+    </div>
+  </div>
+  <div (click)="preview()" class="ui animated button btnPadding" [class.disabled]="!allowRun" tabindex="0">
+    <div class="hidden content">Run</div>
+    <div class="visible content">
+      <i class="terminal icon"></i>
+    </div>
+  </div>
+  <div style="flex: 1; text-align: right;">
+    <select (change)="changeCodeType($event)" class="ui search selection dropdown">
+      <option [selected]="codeType.id == 0" *ngFor="let codeType of codeTypes" [value]="codeType.id">{{codeType.name}}</option>
+    </select>
+  </div>
+</div>
+<div class="tryweb-container">
+  <div class="tryweb-panel left-panel">
+    <div class="monaco-editor" style="height: 100%;"></div>
+  </div>
+  <div class="tryweb-slider"></div>
+  <div class="tryweb-panel right-panel" style="z-index: 5;">
+    <div *ngIf="sliding" class="sliderHelper"></div>
+    <iframe style="width: 100%; height: 100%;" [class.hideFrame]="selectedType.preview !== 'html'" id="iframeContent"></iframe>
+    <div *ngIf="selectedType.preview == 'console' && frameConsole !== undefined && frameConsole.everything.length > 0" class="consoleMain">
+      <div class="consoleText" [class.consoleDebug]="item.type == 'debug'" [class.consoleWarning]="item.type == 'warn'" [class.consoleDefault]="item.type == 'log'" [class.consoleError]="item.type == 'error'" *ngFor="let item of frameConsole.everything"><p class="consoleValue">{{item.value}}</p><p class="consoleTime">{{item.datetime | date :'HH:mm'}}</p></div>
+    </div>
+  </div>
+</div>

@@ -33,6 +33,7 @@ import { PreferencesComponent } from './components/settings/preferences/preferen
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TrywebComponent } from './components/tryweb/tryweb.component';
 
 export function HttpLoaderFactory(httpClient:HttpClient){
   return new TranslateHttpLoader(httpClient);
@@ -61,7 +62,8 @@ export function HttpLoaderFactory(httpClient:HttpClient){
     SettingsComponent,
     AccountSettingsComponent,
     PreferencesComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    TrywebComponent
   ],
   imports: [
     BrowserModule,

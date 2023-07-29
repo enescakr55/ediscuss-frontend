@@ -14,6 +14,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { SubjectSelectorComponent } from './components/subject-selector/subject-selector.component';
 import { NotloggedGuard } from './guards/notlogged.guard';
+import { TrywebComponent } from './components/tryweb/tryweb.component';
 
 const routes: Routes = [
   {path:'',component:MainComponent,pathMatch:'full',canActivate:[LoggedGuard]},
@@ -33,7 +34,8 @@ const routes: Routes = [
   {path:'forgot-password',component:ForgotPasswordComponent,pathMatch:'full'},
   {path:'password-reset/:code',component:ResetPasswordComponent,pathMatch:'full'},
   {path:'settings/:key',component:SettingsComponent,pathMatch:'full'},
-  {path:'notifications',component:NotificationsComponent,pathMatch:'full'}
+  {path:'notifications',component:NotificationsComponent,pathMatch:'full'},
+  {path:'tryweb',component:TrywebComponent,pathMatch:'full'}
 ];
 
 @NgModule({

@@ -32,6 +32,7 @@
     </div>
   </div>
   <br/>
+  <div *ngIf="loading" style="text-align: center;"><app-loading></app-loading></div>
   <!--<hr style="margin:0px; margin-top:0px; margin-bottom:20px">-->
   <div *ngIf="(!discussions || discussions.length < 1) && loading == false" style="font-size: 18px; font-weight:bold; text-align: center; margin-top: 20px; color: var(--primary-text-color);"><i class="x icon"></i>Gönderi bulunamadı...</div>
   <div *ngFor="let discuss of discussions">
@@ -42,7 +43,7 @@
     <div class="item">
       <div class="ui buttons">
         <button class="ui button" (click)="previousPage()"><i class="angle left icon"></i></button>
-        <button class="ui button secondary">{{(page+1)}}</button>
+        <button class="ui button secondary">{{(page+1)}} <app-loading *ngIf="pageLoading" [normalSize]="true"></app-loading></button>
         <button class="ui button" (click)="nextPage()"><i class="angle right icon"></i></button>
       </div>
     </div>

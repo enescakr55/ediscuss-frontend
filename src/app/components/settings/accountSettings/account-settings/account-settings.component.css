@@ -77,8 +77,8 @@
   border-radius: 50%;
   object-fit: cover;
   background-color: black;
-  height: 200px;
   width: 200px;
+  aspect-ratio: 1;
 }
 .changeProfilePictureIcon {
   position: absolute;
