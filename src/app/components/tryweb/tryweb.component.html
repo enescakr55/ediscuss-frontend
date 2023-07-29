@@ -19,7 +19,7 @@
     </div>
   </div>
   <div style="flex: 1; text-align: right;">
-    <select (change)="changeCodeType($event)" class="ui search selection dropdown">
+    <select (change)="changeCodeType($event)" id="languageSelector" class="ui search selection dropdown">
       <option [selected]="codeType.id == 0" *ngFor="let codeType of codeTypes" [value]="codeType.id">{{codeType.name}}</option>
     </select>
   </div>

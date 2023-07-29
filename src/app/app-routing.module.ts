@@ -35,7 +35,8 @@ const routes: Routes = [
   {path:'password-reset/:code',component:ResetPasswordComponent,pathMatch:'full'},
   {path:'settings/:key',component:SettingsComponent,pathMatch:'full'},
   {path:'notifications',component:NotificationsComponent,pathMatch:'full'},
-  {path:'tryweb',component:TrywebComponent,pathMatch:'full'}
+  {path:'tryweb',component:TrywebComponent,pathMatch:'full'},
+  {path:'tryweb/load/:code',component:TrywebComponent,pathMatch:'full'}
 ];
 
 @NgModule({
